@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 // Shared footer for quick navigation and basic organization info.
@@ -11,15 +10,20 @@ export function Footer() {
           <p className="mt-2 max-w-md text-sm text-slate-600">{siteConfig.tagline}</p>
         </div>
 
-        <ul className="flex flex-wrap gap-4">
-          {siteConfig.footerLinks.map((item) => (
-            <li key={item.href}>
-              <Link href={item.href} className="text-sm text-slate-600 hover:text-emerald-700">
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <section>
+            <h3 className="text-sm font-semibold text-slate-900">Quick links</h3>
+            <div className="mt-2 min-h-4" />
+          </section>
+          <section>
+            <h3 className="text-sm font-semibold text-slate-900">Contact us</h3>
+            <div className="mt-2 min-h-4" />
+          </section>
+          <section>
+            <h3 className="text-sm font-semibold text-slate-900">Get Involved</h3>
+            <div className="mt-2 min-h-4" />
+          </section>
+        </div>
       </div>
     </footer>
   );
