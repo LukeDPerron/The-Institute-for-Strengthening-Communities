@@ -9,9 +9,9 @@ type ButtonProps = {
 // Reusable button component for links and call-to-actions.
 export function Button({ children, href, variant = "primary" }: ButtonProps) {
   const styleByVariant = {
-    primary: "bg-emerald-600 text-white hover:bg-emerald-700",
+    primary: "bg-emerald-600 text-white hover:bg-emerald-700 hover:text-orange-500",
     outline:
-      "border border-emerald-600 text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800",
+      "border border-emerald-600 text-emerald-700 hover:bg-emerald-50 hover:text-orange-500",
   };
 
   const className = `inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-semibold transition-colors ${styleByVariant[variant]}`;

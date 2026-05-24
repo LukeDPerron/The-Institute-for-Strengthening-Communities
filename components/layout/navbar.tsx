@@ -11,12 +11,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-lg font-bold text-emerald-700">
+        <Link href="/" className="text-lg font-bold text-orange-500">
           {siteConfig.name}
         </Link>
 
         <button
-          className="rounded-md border border-slate-300 px-3 py-1 text-sm font-medium text-slate-700 md:hidden"
+          className="rounded-md border border-slate-300 px-3 py-1 text-sm font-medium text-slate-700 hover:text-orange-500 md:hidden"
           onClick={() => setIsOpen((current) => !current)}
           aria-expanded={isOpen}
           aria-label="Toggle navigation"
@@ -29,7 +29,7 @@ export function Navbar() {
             <li key={item.label} className="group relative">
               <button
                 type="button"
-                className="cursor-pointer text-sm font-medium text-slate-700 hover:text-emerald-700"
+                className="cursor-pointer text-sm font-medium text-slate-700 hover:text-orange-500"
                 aria-label={`${item.label} menu`}
               >
                 {item.label}
