@@ -11,7 +11,6 @@ type NavItem = {
 
 export const siteConfig = {
   name: "Nonprofit Bloom",
-  tagline: "Growing research, education, and community impact.",
   navItems: [
     {
       label: "About",
