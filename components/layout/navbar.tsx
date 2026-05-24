@@ -35,7 +35,7 @@ export function Navbar() {
                 {item.label}
               </button>
 
-              <ul className="invisible absolute left-0 top-full z-20 mt-2 min-w-44 space-y-1 rounded-md border border-slate-200 bg-white p-2 opacity-0 shadow-sm transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <ul className="invisible absolute left-0 top-full z-20 min-w-44 space-y-1 rounded-md border border-slate-200 bg-white p-2 opacity-0 shadow-sm transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                 {item.items.map((dropdownItem) => (
                   <li key={`${item.label}-${dropdownItem.label}`}>
                     <Link
