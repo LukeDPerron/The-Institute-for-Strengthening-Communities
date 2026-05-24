@@ -10,7 +10,7 @@ type NavItem = {
 };
 
 export const siteConfig = {
-  name: "Nonprofit Bloom",
+  name: "The Institute for Strengthening Communities",
   navItems: [
     {
       label: "About",
