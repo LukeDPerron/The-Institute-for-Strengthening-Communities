@@ -26,7 +26,18 @@ export function Navbar() {
 
         <ul className="hidden items-center gap-6 md:flex">
           {siteConfig.navItems.map((item) => (
-            <li key={item.label} className="group relative">
+            <li
+              key={item.label}
+              className={`group relative ${item.label === "Membership Only" ? "flex flex-col items-start gap-1" : ""}`}
+            >
+              {item.label === "Membership Only" ? (
+                <button
+                  type="button"
+                  className="rounded-md border border-slate-300 px-3 py-1 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                >
+                  Donate
+                </button>
+              ) : null}
               <button
                 type="button"
                 className="cursor-pointer text-sm font-medium text-slate-700 hover:text-orange-500"
@@ -56,6 +67,14 @@ export function Navbar() {
         <ul className="space-y-1 border-t border-slate-200 px-4 py-3 md:hidden">
           {siteConfig.navItems.map((item) => (
             <li key={item.label}>
+              {item.label === "Membership Only" ? (
+                <button
+                  type="button"
+                  className="mb-1 rounded-md border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                >
+                  Donate
+                </button>
+              ) : null}
               <details>
                 <summary className="cursor-pointer rounded-md px-2 py-2 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
                   {item.label}
