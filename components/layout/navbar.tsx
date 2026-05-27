@@ -8,7 +8,7 @@ import { siteConfig } from "@/lib/site-config";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const donateButtonClassName =
-    "rounded-md border border-slate-300 px-3 py-1 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700";
+    "rounded-md border border-slate-300 px-3 py-1 text-sm font-medium text-slate-700 hover:bg-orange-50 hover:text-orange-700";
 
   return (
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
@@ -47,7 +47,7 @@ export function Navbar() {
                     <li key={`${item.label}-${dropdownItem.label}`}>
                       <Link
                         href={dropdownItem.href}
-                        className="block rounded-md px-2 py-1 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                        className="block rounded-md px-2 py-1 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-700"
                       >
                         {dropdownItem.label}
                       </Link>
@@ -70,7 +70,7 @@ export function Navbar() {
           {siteConfig.navItems.map((item) => (
             <li key={item.label}>
               <details>
-                <summary className="cursor-pointer rounded-md px-2 py-2 text-sm font-medium text-slate-700 hover:bg-emerald-50 hover:text-emerald-700">
+                <summary className="cursor-pointer rounded-md px-2 py-2 text-sm font-medium text-slate-700 hover:bg-orange-50 hover:text-orange-700">
                   {item.label}
                 </summary>
                 <ul className="space-y-1 pl-4">
@@ -78,7 +78,7 @@ export function Navbar() {
                     <li key={`${item.label}-${dropdownItem.label}`}>
                       <Link
                         href={dropdownItem.href}
-                        className="block rounded-md px-2 py-2 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                        className="block rounded-md px-2 py-2 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-700"
                         onClick={() => setIsOpen(false)}
                       >
                         {dropdownItem.label}
