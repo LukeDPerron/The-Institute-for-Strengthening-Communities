@@ -13,8 +13,12 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-lg font-bold text-orange-500">
-          {siteConfig.name}
+        <Link
+          href="/"
+          aria-label={siteConfig.name}
+          className="inline-flex h-10 w-56 items-center justify-center rounded-md border-2 border-dashed border-orange-300 bg-orange-50/40 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600"
+        >
+          Logo Placeholder
         </Link>
 
         <button
