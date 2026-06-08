@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { siteConfig } from "@/lib/site-config";
@@ -16,9 +17,16 @@ export function Navbar() {
         <Link
           href="/"
           aria-label={siteConfig.name}
-          className="inline-flex h-10 w-56 items-center justify-center rounded-md border-2 border-dashed border-orange-300 bg-orange-50/40 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600"
+          className="inline-flex shrink-0 items-center"
         >
-          <img src="/logo.png" alt={`${siteConfig.name} logo`} className="h-6 w-auto" />
+          <Image
+            src="/Logo.png"
+            alt={`${siteConfig.name} logo`}
+            width={619}
+            height={70}
+            priority
+            className="h-auto w-48 sm:w-56 lg:w-64"
+          />
         </Link>
 
         <button
