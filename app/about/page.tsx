@@ -63,13 +63,9 @@ const staffMembers = [
 
 function PersonCard({
   name,
-  role,
-  bio,
   imageSrc,
 }: {
   name: string;
-  role: string;
-  bio: string;
   imageSrc: string;
 }) {
   return (
@@ -84,8 +80,6 @@ function PersonCard({
         />
       </div>
       <h3 className="mt-4 text-center text-lg font-semibold text-slate-900">{name}</h3>
-      <p className="text-center text-sm font-medium text-orange-700">{role}</p>
-      <p className="mt-3 text-center text-sm leading-6 text-slate-600">{bio}</p>
     </article>
   );
 }
@@ -134,21 +128,23 @@ export default function AboutPage() {
   return (
     <>
       {/* Full-width banner — replace aboutImageSources.hero (top of file) with your final asset */}
-      <div className="relative w-full overflow-hidden h-64 sm:h-80 lg:h-[450px]">
-        <Image
-          src={aboutImageSources.hero}
-          alt="About page banner"
-          fill
-          priority
-          className="object-cover"
-        />
-        {/* Dark overlay for text legibility */}
-        <div className="absolute inset-0 bg-black/40" />
-        {/* "About" label — top-left */}
-        <div className="absolute left-0 top-0 p-8 sm:p-10 lg:p-16">
-          <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
-            About
-          </h1>
+      <div className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8">
+        <div className="relative h-64 overflow-hidden rounded-2xl sm:h-80 lg:h-[420px]">
+          <Image
+            src={aboutImageSources.hero}
+            alt="About page banner"
+            fill
+            priority
+            className="object-cover"
+          />
+          {/* Dark overlay for text legibility */}
+          <div className="absolute inset-0 bg-black/40" />
+          {/* "About" label — top-left */}
+          <div className="absolute left-0 top-0 p-8 sm:p-10 lg:p-16">
+            <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
+              About
+            </h1>
+          </div>
         </div>
       </div>
 
@@ -180,8 +176,6 @@ export default function AboutPage() {
             <PersonCard
               key={member.name}
               name={member.name}
-              role={member.role}
-              bio={member.bio}
               imageSrc={aboutImageSources.boardHeadshot}
             />
           ))}
@@ -197,8 +191,6 @@ export default function AboutPage() {
             <PersonCard
               key={member.name}
               name={member.name}
-              role={member.role}
-              bio={member.bio}
               imageSrc={aboutImageSources.staffHeadshot}
             />
           ))}
