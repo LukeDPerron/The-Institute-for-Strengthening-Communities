@@ -62,24 +62,28 @@ const staffMembers = [
 ];
 
 function PersonCard({
-  name,
+  altName,
+  placeholderName,
   imageSrc,
 }: {
-  name: string;
+  altName: string;
+  placeholderName: string;
   imageSrc: string;
 }) {
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-      <div className="mx-auto w-32 overflow-hidden rounded-full border border-slate-200 bg-slate-100">
+    <article className="flex flex-col items-center">
+      <div className="w-24 overflow-hidden rounded-full bg-slate-100 sm:w-28">
         <Image
           src={imageSrc}
-          alt={`Placeholder headshot for ${name}`}
+          alt={`Placeholder headshot for ${altName}`}
           width={256}
           height={256}
           className="h-auto w-full"
         />
       </div>
-      <h3 className="mt-4 text-center text-lg font-semibold text-slate-900">{name}</h3>
+      <h3 className="mt-3 text-center text-base font-medium text-slate-800">
+        {placeholderName}
+      </h3>
     </article>
   );
 }
@@ -99,8 +103,13 @@ function TeamSection({
     <section id={id}>
       <h2 className="text-3xl font-bold tracking-tight text-slate-900">{title}</h2>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
-        {members.map((member) => (
-          <PersonCard key={member.name} name={member.name} imageSrc={imageSrc} />
+        {members.map((member, index) => (
+          <PersonCard
+            key={member.name}
+            altName={member.name}
+            placeholderName={`Name ${index + 1}`}
+            imageSrc={imageSrc}
+          />
         ))}
       </div>
     </section>
@@ -151,7 +160,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Full-width banner — replace aboutImageSources.hero (top of file) with your final asset */}
-      <div className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
         <div className="relative h-64 overflow-hidden sm:h-80 lg:h-[420px]">
           <Image
             src={aboutImageSources.hero}
