@@ -3,6 +3,11 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 
 const aboutImageSources = {
+  // ── BANNER IMAGE ─────────────────────────────────────────────────────────
+  // Replace this path with your final full-width banner asset.
+  // File location: /public/images/about/hero-placeholder.svg
+  // Swap the value below, e.g. "/images/about/banner.jpg"
+  // ─────────────────────────────────────────────────────────────────────────
   hero: "/images/about/hero-placeholder.svg",
   mission: "/images/about/mission-placeholder.svg",
   story: "/images/about/story-placeholder.svg",
@@ -128,47 +133,24 @@ function StorySection({
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-gradient-to-b from-white via-orange-50/40 to-slate-50">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 md:py-20 lg:grid-cols-2 lg:px-8">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-700">
-              About Us
-            </p>
-            <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-              Building stronger communities together
-            </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-slate-700">
-              {siteConfig.name} partners with local residents, volunteers, and
-              leaders to create opportunities that help neighborhoods grow and
-              thrive.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={siteConfig.donateHref}
-                className="rounded-md bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-              >
-                Donate Now
-              </Link>
-              <Link
-                href="/programs"
-                className="rounded-md border border-orange-500 px-5 py-2.5 text-sm font-semibold text-orange-700 transition-colors hover:bg-orange-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-              >
-                Explore Programs
-              </Link>
-            </div>
-          </div>
-          <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <Image
-              src={aboutImageSources.hero}
-              alt="Placeholder image showing a community gathering"
-              width={1200}
-              height={800}
-              priority
-              className="h-auto w-full"
-            />
-          </div>
+      {/* Full-width banner — replace aboutImageSources.hero (top of file) with your final asset */}
+      <div className="relative w-full overflow-hidden h-64 sm:h-80 lg:h-[450px]">
+        <Image
+          src={aboutImageSources.hero}
+          alt="About page banner"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* "About" label — top-left */}
+        <div className="absolute left-0 top-0 p-8 sm:p-10 lg:p-16">
+          <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
+            About
+          </h1>
         </div>
-      </section>
+      </div>
 
       <StorySection
         id="mission"
