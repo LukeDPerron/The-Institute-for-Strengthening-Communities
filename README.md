@@ -30,3 +30,8 @@ npm run dev
 - `components/layout/` - reusable layout primitives (navbar, footer, section)
 - `components/ui/` - reusable UI elements (button, card)
 - `lib/` - shared configuration and CMS integration placeholders
+
+## Adding a real logo later
+
+1. Add your logo file to `public/` (example: `public/logo.png`).
+2. Update the brand block in `components/layout/navbar.tsx` (currently `Logo Placeholder`) to render your image instead.
