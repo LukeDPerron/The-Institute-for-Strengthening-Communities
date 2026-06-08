@@ -155,7 +155,7 @@ export default function AboutPage() {
       <StorySection
         id="mission"
         title="Mission Statement"
-        description="Our mission is to expand access to resources, education, and relationships that empower people to create lasting change where they live. We focus on practical support, local leadership, and equitable growth that strengthens entire communities."
+        description=""
         imageSrc={aboutImageSources.mission}
         imageAlt="Placeholder image for mission-driven community work"
       />
@@ -163,7 +163,7 @@ export default function AboutPage() {
       <StorySection
         id="story"
         title="Our Story"
-        description="What started as a small neighborhood initiative has grown into a collaborative nonprofit effort shaped by volunteers, partners, and residents. Today, we continue that story by investing in people-first programs, measurable outcomes, and long-term community resilience."
+        description=""
         imageSrc={aboutImageSources.story}
         imageAlt="Placeholder image representing the organization story"
         reverse
@@ -174,8 +174,6 @@ export default function AboutPage() {
           Board of Directors
         </h2>
         <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700">
-          Our board provides oversight, accountability, and strategic direction
-          to keep every initiative aligned with our nonprofit mission.
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {boardMembers.map((member) => (
@@ -193,8 +191,6 @@ export default function AboutPage() {
       <section id="staff" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold tracking-tight text-slate-900">Staff</h2>
         <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700">
-          Our staff team works alongside community partners every day to deliver
-          programs, support families, and build momentum for local change.
         </p>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {staffMembers.map((member) => (
