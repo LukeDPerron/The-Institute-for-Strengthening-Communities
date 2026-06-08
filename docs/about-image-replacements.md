@@ -26,18 +26,20 @@ Use this checklist to replace placeholder images used by the About page implemen
 - **Current source:** Placeholder local asset (`/images/about/story-placeholder.svg`)
 
 ## 4) Board member headshots
-- **Section:** Board of Directors cards
+- **Section:** Board of Directors profiles
 - **Recommended image:** Professional board member portraits with consistent lighting/background
 - **Ideal aspect ratio:** 4:5 portrait rectangle
 - **Replace location:** `boardMembers` entries in `app/about/page.tsx` (`imageSrc` on each person)
 - **Current source:** Placeholder local asset on each member (`/images/about/board-headshot-placeholder.svg`)
+- **Current presentation:** Photo only, with name and role stacked below the image
 
 ## 5) Staff headshots
-- **Section:** Staff cards
+- **Section:** Staff profiles
 - **Recommended image:** Professional staff portraits with consistent style across team
 - **Ideal aspect ratio:** 4:5 portrait rectangle
 - **Replace location:** `staffMembers` entries in `app/about/page.tsx` (`imageSrc` on each person)
 - **Current source:** Placeholder local asset on each member (`/images/about/staff-headshot-placeholder.svg`)
+- **Current presentation:** Photo only, with name and role stacked below the image
 
 ## Placeholder asset files
 All current placeholder image assets are local SVG files in:
