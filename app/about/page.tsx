@@ -85,7 +85,7 @@ function PersonCard({
 }) {
   return (
     <article className="space-y-4">
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-slate-100">
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
         <Image
           src={imageSrc}
           alt={`Headshot of ${name}`}
@@ -149,7 +149,7 @@ function StorySection({
           reverse ? "lg:[&>*:first-child]:order-2" : ""
         }`}
       >
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div className="overflow-hidden border border-slate-200 bg-white shadow-sm">
           <Image
             src={imageSrc}
             alt={imageAlt}
