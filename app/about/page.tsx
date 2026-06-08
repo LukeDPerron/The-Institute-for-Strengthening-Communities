@@ -9,8 +9,8 @@ const aboutImageSources = {
   // Swap the value below, e.g. "/images/about/banner.jpg"
   // ─────────────────────────────────────────────────────────────────────────
   hero: "/images/about/header.jpg",
-  mission: "/images/about/mission-placeholder.svg",
-  story: "/images/about/story-placeholder.svg",
+  mission: "/images/about/mission.png",
+  story: "/images/about/Our-Story.png",
   boardHeadshot: "/images/about/board-headshot-placeholder.svg",
   staffHeadshot: "/images/about/staff-headshot-placeholder.svg",
 };
