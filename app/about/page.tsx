@@ -93,9 +93,9 @@ function PersonCard({
           className="object-cover"
         />
       </div>
-      <div>
-        <h3 className="text-base font-semibold text-slate-900">{name}</h3>
-        <p className="mt-1 text-sm font-medium text-orange-700">{role}</p>
+      <div className="text-center">
+        <h3 className="text-base font-semibold text-black">{name}</h3>
+        <p className="mt-1 text-sm font-medium text-black">{role}</p>
       </div>
     </article>
   );
@@ -159,7 +159,9 @@ function StorySection({
           />
         </div>
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900">{title}</h2>
+          <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">
+            {title}
+          </h2>
           <p className="mt-4 text-base leading-7 text-slate-700">{description}</p>
         </div>
       </div>
