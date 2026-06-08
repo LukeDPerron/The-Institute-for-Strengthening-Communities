@@ -11,79 +11,95 @@ const aboutImageSources = {
   hero: "/images/about/header.jpg",
   mission: "/images/about/mission.png",
   story: "/images/about/Our-Story.png",
-  boardHeadshot: "/images/about/board-headshot-placeholder.svg",
-  staffHeadshot: "/images/about/staff-headshot-placeholder.svg",
 };
 
-const boardMembers = [
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  imageSrc: string;
+};
+
+const boardMembers: TeamMember[] = [
   {
     name: "Jordan Avery",
     role: "Board Chair",
     bio: "Leads strategic partnerships and helps align programs with community priorities.",
+    imageSrc: "/images/about/board-headshot-placeholder.svg",
   },
   {
     name: "Casey Morgan",
     role: "Treasurer",
     bio: "Supports sustainable growth and transparent stewardship for every donor dollar.",
+    imageSrc: "/images/about/board-headshot-placeholder.svg",
   },
   {
     name: "Taylor Nguyen",
     role: "Secretary",
     bio: "Champions neighborhood listening sessions and volunteer engagement.",
+    imageSrc: "/images/about/board-headshot-placeholder.svg",
   },
   {
     name: "Riley Carter",
     role: "At-Large Director",
     bio: "Brings experience in youth programming and cross-sector collaboration.",
+    imageSrc: "/images/about/board-headshot-placeholder.svg",
   },
 ];
 
-const staffMembers = [
+const staffMembers: TeamMember[] = [
   {
     name: "Alex Rivera",
     role: "Executive Director",
     bio: "Guides mission delivery and long-term impact planning across all programs.",
+    imageSrc: "/images/about/staff-headshot-placeholder.svg",
   },
   {
     name: "Morgan Lee",
     role: "Program Manager",
     bio: "Coordinates community workshops, events, and outcomes reporting.",
+    imageSrc: "/images/about/staff-headshot-placeholder.svg",
   },
   {
     name: "Skyler Patel",
     role: "Volunteer Coordinator",
     bio: "Connects volunteers to meaningful projects that strengthen neighborhoods.",
+    imageSrc: "/images/about/staff-headshot-placeholder.svg",
   },
   {
     name: "Jamie Brooks",
     role: "Development Associate",
     bio: "Builds donor relationships and supports fundraising campaigns.",
+    imageSrc: "/images/about/staff-headshot-placeholder.svg",
   },
 ];
 
 function PersonCard({
-  altName,
-  placeholderName,
+  name,
+  role,
+  bio,
   imageSrc,
 }: {
-  altName: string;
-  placeholderName: string;
+  name: string;
+  role: string;
+  bio: string;
   imageSrc: string;
 }) {
   return (
-    <article className="flex flex-col items-center">
-      <div className="w-24 overflow-hidden rounded-full bg-slate-100 sm:w-28">
+    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
         <Image
           src={imageSrc}
-          alt={`Placeholder headshot for ${altName}`}
-          width={256}
-          height={256}
-          className="h-auto w-full"
+          alt={`Headshot of ${name}`}
+          fill
+          className="object-cover"
         />
       </div>
-      <h3 className="mt-3 text-center text-base font-medium text-slate-800">
-        {placeholderName}
-      </h3>
+      <div className="p-4 sm:p-5">
+        <h3 className="text-base font-semibold text-slate-900">{name}</h3>
+        <p className="mt-1 text-sm font-medium text-orange-700">{role}</p>
+        <p className="mt-2 text-sm leading-6 text-slate-600">{bio}</p>
+      </div>
     </article>
   );
 }
@@ -92,23 +108,22 @@ function TeamSection({
   id,
   title,
   members,
-  imageSrc,
 }: {
   id: string;
   title: string;
-  members: { name: string }[];
-  imageSrc: string;
+  members: TeamMember[];
 }) {
   return (
     <section id={id}>
       <h2 className="text-3xl font-bold tracking-tight text-slate-900">{title}</h2>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
-        {members.map((member, index) => (
+        {members.map((member) => (
           <PersonCard
             key={member.name}
-            altName={member.name}
-            placeholderName={`Name ${index + 1}`}
-            imageSrc={imageSrc}
+            name={member.name}
+            role={member.role}
+            bio={member.bio}
+            imageSrc={member.imageSrc}
           />
         ))}
       </div>
@@ -203,13 +218,11 @@ export default function AboutPage() {
             id="board"
             title="Board of Directors"
             members={boardMembers}
-            imageSrc={aboutImageSources.boardHeadshot}
           />
           <TeamSection
             id="staff"
             title="Staff"
             members={staffMembers}
-            imageSrc={aboutImageSources.staffHeadshot}
           />
         </div>
       </section>
