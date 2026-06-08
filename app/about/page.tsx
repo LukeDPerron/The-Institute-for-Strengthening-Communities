@@ -84,6 +84,29 @@ function PersonCard({
   );
 }
 
+function TeamSection({
+  id,
+  title,
+  members,
+  imageSrc,
+}: {
+  id: string;
+  title: string;
+  members: { name: string }[];
+  imageSrc: string;
+}) {
+  return (
+    <section id={id}>
+      <h2 className="text-3xl font-bold tracking-tight text-slate-900">{title}</h2>
+      <div className="mt-8 grid gap-6 sm:grid-cols-2">
+        {members.map((member) => (
+          <PersonCard key={member.name} name={member.name} imageSrc={imageSrc} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function StorySection({
   id,
   title,
@@ -129,7 +152,7 @@ export default function AboutPage() {
     <>
       {/* Full-width banner — replace aboutImageSources.hero (top of file) with your final asset */}
       <div className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6 lg:px-8">
-        <div className="relative h-64 overflow-hidden rounded-2xl sm:h-80 lg:h-[420px]">
+        <div className="relative h-64 overflow-hidden sm:h-80 lg:h-[420px]">
           <Image
             src={aboutImageSources.hero}
             alt="About page banner"
@@ -165,35 +188,20 @@ export default function AboutPage() {
         reverse
       />
 
-      <section id="board" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-          Board of Directors
-        </h2>
-        <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700">
-        </p>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {boardMembers.map((member) => (
-            <PersonCard
-              key={member.name}
-              name={member.name}
-              imageSrc={aboutImageSources.boardHeadshot}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section id="staff" className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900">Staff</h2>
-        <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700">
-        </p>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {staffMembers.map((member) => (
-            <PersonCard
-              key={member.name}
-              name={member.name}
-              imageSrc={aboutImageSources.staffHeadshot}
-            />
-          ))}
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-10">
+          <TeamSection
+            id="board"
+            title="Board of Directors"
+            members={boardMembers}
+            imageSrc={aboutImageSources.boardHeadshot}
+          />
+          <TeamSection
+            id="staff"
+            title="Staff"
+            members={staffMembers}
+            imageSrc={aboutImageSources.staffHeadshot}
+          />
         </div>
       </section>
 
