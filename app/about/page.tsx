@@ -8,7 +8,7 @@ const aboutImageSources = {
   // File location: /public/images/about/hero-placeholder.svg
   // Swap the value below, e.g. "/images/about/banner.jpg"
   // ─────────────────────────────────────────────────────────────────────────
-  hero: "/images/about/hero-placeholder.svg",
+  hero: "/images/about/header.jpg",
   mission: "/images/about/mission-placeholder.svg",
   story: "/images/about/story-placeholder.svg",
   boardHeadshot: "/images/about/board-headshot-placeholder.svg",
