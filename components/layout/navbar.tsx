@@ -18,7 +18,7 @@ export function Navbar() {
           aria-label={siteConfig.name}
           className="inline-flex h-10 w-56 items-center justify-center rounded-md border-2 border-dashed border-orange-300 bg-orange-50/40 text-xs font-semibold uppercase tracking-[0.2em] text-orange-600"
         >
-          Logo Placeholder
+          <img src="/logo.png" alt={`${siteConfig.name} logo`} className="h-6 w-auto" />
         </Link>
 
         <button
