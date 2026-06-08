@@ -11,6 +11,7 @@ type NavItem = {
 
 export const siteConfig = {
   name: "The Institute for Strengthening Communities",
+  donateHref: "/membership",
   navItems: [
     {
       label: "About",
