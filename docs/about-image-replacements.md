@@ -28,19 +28,24 @@ Use this checklist to replace placeholder images used by the About page implemen
 ## 4) Board member headshots
 - **Section:** Board of Directors cards
 - **Recommended image:** Professional board member portraits with consistent lighting/background
-- **Ideal aspect ratio:** 1:1 square crop
-- **Replace location:** `aboutImageSources.boardHeadshot` in `app/about/page.tsx`
-- **Current source:** Placeholder local asset (`/images/about/board-headshot-placeholder.svg`)
+- **Ideal aspect ratio:** 4:5 portrait rectangle
+- **Replace location:** `boardMembers` entries in `app/about/page.tsx` (`imageSrc` on each person)
+- **Current source:** Placeholder local asset on each member (`/images/about/board-headshot-placeholder.svg`)
 
 ## 5) Staff headshots
 - **Section:** Staff cards
 - **Recommended image:** Professional staff portraits with consistent style across team
-- **Ideal aspect ratio:** 1:1 square crop
-- **Replace location:** `aboutImageSources.staffHeadshot` in `app/about/page.tsx`
-- **Current source:** Placeholder local asset (`/images/about/staff-headshot-placeholder.svg`)
+- **Ideal aspect ratio:** 4:5 portrait rectangle
+- **Replace location:** `staffMembers` entries in `app/about/page.tsx` (`imageSrc` on each person)
+- **Current source:** Placeholder local asset on each member (`/images/about/staff-headshot-placeholder.svg`)
 
 ## Placeholder asset files
 All current placeholder image assets are local SVG files in:
 - `public/images/about/`
+
+## Future individual staff/board photo assets
+- Add each person’s final photo into `public/images/about/` (or a subfolder such as `public/images/about/team/`).
+- Update only that person’s `imageSrc` value in `boardMembers` or `staffMembers` in `app/about/page.tsx`.
+- No component logic changes are needed once files are added.
 
 No hardcoded remote images are used on the About page at this time.
