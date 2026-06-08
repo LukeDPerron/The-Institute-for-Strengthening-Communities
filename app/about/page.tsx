@@ -77,17 +77,15 @@ const staffMembers: TeamMember[] = [
 function PersonCard({
   name,
   role,
-  bio,
   imageSrc,
 }: {
   name: string;
   role: string;
-  bio: string;
   imageSrc: string;
 }) {
   return (
-    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-      <div className="relative aspect-[4/5] w-full overflow-hidden bg-slate-100">
+    <article className="space-y-4">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-slate-100">
         <Image
           src={imageSrc}
           alt={`Headshot of ${name}`}
@@ -95,10 +93,9 @@ function PersonCard({
           className="object-cover"
         />
       </div>
-      <div className="p-4 sm:p-5">
+      <div>
         <h3 className="text-base font-semibold text-slate-900">{name}</h3>
         <p className="mt-1 text-sm font-medium text-orange-700">{role}</p>
-        <p className="mt-2 text-sm leading-6 text-slate-600">{bio}</p>
       </div>
     </article>
   );
@@ -122,7 +119,6 @@ function TeamSection({
             key={member.name}
             name={member.name}
             role={member.role}
-            bio={member.bio}
             imageSrc={member.imageSrc}
           />
         ))}
