@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Staff headshot placeholder</title>
+  <desc id="desc">Square headshot placeholder for staff profile cards</desc>
+  <rect width="512" height="512" fill="#FFF7ED"/>
+  <circle cx="256" cy="186" r="92" fill="#FDBA74"/>
+  <rect x="112" y="308" width="288" height="128" rx="64" fill="#FED7AA"/>
+  <circle cx="256" cy="256" r="214" stroke="#EA580C" stroke-width="14" stroke-dasharray="20 12"/>
+  <text x="256" y="478" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="26" font-weight="700">Replace Headshot 1:1</text>
+</svg>

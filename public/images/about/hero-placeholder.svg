@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Hero image placeholder</title>
+  <desc id="desc">Placeholder area for About page hero image</desc>
+  <rect width="1200" height="800" fill="#FFF7ED"/>
+  <rect x="56" y="56" width="1088" height="688" rx="28" fill="#FFEDD5" stroke="#FDBA74" stroke-width="4" stroke-dasharray="18 12"/>
+  <circle cx="250" cy="270" r="82" fill="#FDBA74"/>
+  <circle cx="430" cy="320" r="82" fill="#FED7AA"/>
+  <circle cx="610" cy="270" r="82" fill="#FDBA74"/>
+  <rect x="190" y="475" width="680" height="36" rx="18" fill="#FB923C" opacity="0.35"/>
+  <rect x="190" y="531" width="500" height="26" rx="13" fill="#EA580C" opacity="0.35"/>
+  <text x="600" y="690" text-anchor="middle" fill="#9A3412" font-family="Arial, sans-serif" font-size="38" font-weight="700">Replace with About Hero Photo (3:2)</text>
+</svg>
