@@ -8,10 +8,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.2fr_1fr_1fr] lg:px-8">
         <section>
           <h2 className="text-base font-semibold text-slate-900">{siteConfig.name}</h2>
-          <p className="mt-3 max-w-md text-sm leading-6 text-slate-600">
-            Partnering with our community to create opportunity, belonging, and
-            long-term impact.
-          </p>
+
           <Link
             href={siteConfig.donateHref}
             className="mt-5 inline-flex rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
@@ -43,7 +40,7 @@ export function Footer() {
             Contact
           </h3>
           <ul className="mt-3 space-y-2 text-sm text-slate-600">
-            <li>info@nonprofitbloom.org</li>
+            <li>info@isc-placemaking.org</li>
             <li>(555) 555-0123</li>
             <li>123 Community Way, Hometown, ST</li>
           </ul>

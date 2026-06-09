@@ -20,55 +20,55 @@ type TeamMember = {
 
 const boardMembers: TeamMember[] = [
   {
-    name: "Jordan Avery",
-    role: "Board Chair",
+    name: "Name Surname",
+    role: "Title",
     bio: "Leads strategic partnerships and helps align programs with community priorities.",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
+    imageSrc: "/images/about/femaleplace.jpg",
   },
   {
-    name: "Casey Morgan",
-    role: "Treasurer",
+    name: "Name Surname",
+    role: "Title",
     bio: "Supports sustainable growth and transparent stewardship for every donor dollar.",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
+    imageSrc: "/images/about/femaleplace.jpg",
   },
   {
-    name: "Taylor Nguyen",
-    role: "Secretary",
+    name: "Name Surname",
+    role: "Title",
     bio: "Champions neighborhood listening sessions and volunteer engagement.",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
+    imageSrc: "/images/about/femaleplace.jpg",
   },
   {
-    name: "Riley Carter",
-    role: "At-Large Director",
+    name: "Name Surname",
+    role: "Title",
     bio: "Brings experience in youth programming and cross-sector collaboration.",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
+    imageSrc: "/images/about/femaleplace.jpg",
   },
 ];
 
 const staffMembers: TeamMember[] = [
   {
-    name: "Alex Rivera",
-    role: "Executive Director",
+    name: "Name Surname",
+    role: "Title",
     bio: "Guides mission delivery and long-term impact planning across all programs.",
-    imageSrc: "/images/about/staff-headshot-placeholder.svg",
+    imageSrc: "/images/about/Maleplace.png",
   },
   {
-    name: "Morgan Lee",
-    role: "Program Manager",
+    name: "Name Surname",
+    role: "Title",
     bio: "Coordinates community workshops, events, and outcomes reporting.",
-    imageSrc: "/images/about/staff-headshot-placeholder.svg",
+    imageSrc: "/images/about/Maleplace.png",
   },
   {
-    name: "Skyler Patel",
-    role: "Volunteer Coordinator",
+    name: "Name Surname",
+    role: "Title",
     bio: "Connects volunteers to meaningful projects that strengthen neighborhoods.",
-    imageSrc: "/images/about/staff-headshot-placeholder.svg",
+    imageSrc: "/images/about/Maleplace.png",
   },
   {
-    name: "Jamie Brooks",
-    role: "Development Associate",
+    name: "Name Surname",
+    role: "Title",
     bio: "Builds donor relationships and supports fundraising campaigns.",
-    imageSrc: "/images/about/staff-headshot-placeholder.svg",
+    imageSrc: "/images/about/Maleplace.png",
   },
 ];
 
@@ -141,7 +141,7 @@ function StorySection({
   reverse?: boolean;
 }) {
   return (
-    <section id={id} className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+    <section id={id} className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div
         className={`grid items-center gap-10 lg:grid-cols-2 ${
           reverse ? "lg:[&>*:first-child]:order-2" : ""
@@ -172,7 +172,7 @@ export default function AboutPage() {
     <>
       {/* Full-width banner — replace aboutImageSources.hero (top of file) with your final asset */}
       <div className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-        <div className="relative h-64 overflow-hidden sm:h-80 lg:h-[420px]">
+        <div className="relative h-64 overflow-hidden rounded-xl sm:h-80 lg:h-[420px]">
           <Image
             src={aboutImageSources.hero}
             alt="About page banner"
