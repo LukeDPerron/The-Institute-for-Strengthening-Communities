@@ -1,6 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
-import { siteConfig } from "@/lib/site-config";
 
 const aboutImageSources = {
   // ── BANNER IMAGE ─────────────────────────────────────────────────────────
@@ -225,37 +223,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section
-        id="get-involved"
-        className="border-y border-slate-200 bg-white/80 py-14"
-      >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-            Quick Links & Support
-          </h2>
-          <p className="mt-3 max-w-3xl text-base leading-7 text-slate-700">
-            Learn more, connect with our team, or support our mission with a
-            donation.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {siteConfig.footerLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm font-medium text-slate-700 transition-colors hover:border-orange-200 hover:bg-orange-50 hover:text-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href={siteConfig.donateHref}
-              className="rounded-xl bg-orange-500 px-4 py-4 text-center text-sm font-semibold text-white transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-            >
-              Donate to Support Our Work
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
