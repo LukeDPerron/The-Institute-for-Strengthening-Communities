@@ -13,7 +13,7 @@ export function Navbar() {
     <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
       >
         {/* Logo / branding — always on the left */}
         <Link
@@ -22,12 +22,12 @@ export function Navbar() {
           className="inline-flex shrink-0 items-center"
         >
           <Image
-            src="/Logo.png"
+            src="/transparent_Logo.png"
             alt={`${siteConfig.name} logo`}
             width={619}
             height={70}
             priority
-            className="h-auto w-48 sm:w-56 lg:w-120"
+            className="h-auto w-48 sm:w-56 lg:w-80"
           />
         </Link>
 
@@ -40,7 +40,7 @@ export function Navbar() {
                   type="button"
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
-                  className="cursor-pointer text-sm font-medium text-slate-700 hover:text-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+                  className="cursor-pointer text-[18px] font-medium text-slate-700 hover:text-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
                 >
                   {item.label}
                 </button>
@@ -54,7 +54,7 @@ export function Navbar() {
                       <Link
                         href={dropdownItem.href}
                         role="menuitem"
-                        className="block rounded-md px-3 py-1.5 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+                        className="block rounded-md px-3 py-1.5 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
                       >
                         {dropdownItem.label}
                       </Link>
@@ -67,7 +67,7 @@ export function Navbar() {
 
           <Link
             href={siteConfig.donateHref}
-            className="rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            className="rounded-md bg-orange-500 px-4 py-2 text-[18px] font-semibold text-white hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           >
             Donate
           </Link>
@@ -96,7 +96,7 @@ export function Navbar() {
             <li>
               <Link
                 href={siteConfig.donateHref}
-                className="block rounded-md bg-orange-500 px-4 py-2.5 text-center text-sm font-semibold text-white hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+                className="block rounded-md bg-orange-500 px-4 py-2.5 text-center text-[18px] font-semibold text-white hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
                 onClick={() => setIsOpen(false)}
               >
                 Donate
@@ -105,7 +105,7 @@ export function Navbar() {
             {siteConfig.navItems.map((item) => (
               <li key={item.label}>
                 <details>
-                  <summary className="cursor-pointer list-none rounded-md px-2 py-2 text-sm font-medium text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500">
+                  <summary className="cursor-pointer list-none rounded-md px-2 py-2 text-[18px] font-medium text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500">
                     {item.label}
                   </summary>
                   <ul className="mt-1 space-y-1 pl-4">
@@ -113,7 +113,7 @@ export function Navbar() {
                       <li key={`${item.label}-${dropdownItem.label}`}>
                         <Link
                           href={dropdownItem.href}
-                          className="block rounded-md px-2 py-2 text-sm text-slate-700 hover:bg-orange-50 hover:text-orange-700"
+                          className="block rounded-md px-2 py-2 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700"
                           onClick={() => setIsOpen(false)}
                         >
                           {dropdownItem.label}

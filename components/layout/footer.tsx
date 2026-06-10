@@ -41,8 +41,8 @@ export function Footer() {
           </h3>
           <ul className="mt-3 space-y-2 text-sm text-slate-600">
             <li>info@isc-placemaking.org</li>
-            <li>(555) 555-0123</li>
-            <li>123 Community Way, Hometown, ST</li>
+            <li>(248) 882-5330</li>
+            <li>4199 West Four Lakes Drive, Linden, MI 48451</li>
           </ul>
         </section>
       </div>

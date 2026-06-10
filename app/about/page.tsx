@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const aboutImageSources = {
   // ── BANNER IMAGE ─────────────────────────────────────────────────────────
@@ -47,10 +48,10 @@ const boardMembers: TeamMember[] = [
 
 const staffMembers: TeamMember[] = [
   {
-    name: "Name Surname",
-    role: "Title",
+    name: "Hailey",
+    role: "Therapy Dog",
     bio: "Guides mission delivery and long-term impact planning across all programs.",
-    imageSrc: "/images/about/Maleplace.png",
+    imageSrc: "/images/about/Hailey_headshot.jpg",
   },
   {
     name: "Name Surname",
@@ -132,6 +133,9 @@ function StorySection({
   imageSrc,
   imageAlt,
   reverse,
+  justifyDescription,
+  showSeeMore,
+  seeMoreHref,
 }: {
   id: string;
   title: string;
@@ -139,6 +143,9 @@ function StorySection({
   imageSrc: string;
   imageAlt: string;
   reverse?: boolean;
+  justifyDescription?: boolean;
+  showSeeMore?: boolean;
+  seeMoreHref?: string;
 }) {
   return (
     <section id={id} className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
@@ -160,7 +167,24 @@ function StorySection({
           <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">
             {title}
           </h2>
-          <p className="mt-4 text-base leading-7 text-slate-700">{description}</p>
+          <p
+            className={`mt-4 text-base leading-7 text-slate-700 ${
+              justifyDescription ? "text-justify" : ""
+            }`}
+          >
+            {description}
+            {showSeeMore ? (
+              <>
+                {" "}
+                <Link
+                  href={seeMoreHref ?? "/about#story"}
+                  className="font-semibold text-orange-700 underline-offset-2 hover:underline"
+                >
+                  See more{">"}
+                </Link>
+              </>
+            ) : null}
+          </p>
         </div>
       </div>
     </section>
@@ -194,10 +218,28 @@ export default function AboutPage() {
       <StorySection
         id="mission"
         title="Mission Statement"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        description="The organization’s mission is to educate individuals, communities, and local leaders in democratic and restorative principles that strengthen trust, civic engagement, and collaboration. Through workshops, trainings, community dialogues, and educational resources, the organization promotes civic responsibility, restorative practices, collective problem-solving, and constructive participation in community improvement efforts. Its work focuses on fostering healing, accountability, shared decision-making, and stronger community relationships through nonpartisan education and collaborative action."
         imageSrc={aboutImageSources.mission}
         imageAlt="Placeholder image for mission-driven community work"
+        justifyDescription
       />
+
+
+
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-10">
+          <TeamSection
+            id="Board of Directors"
+            title="Board of Directors"
+            members={boardMembers}
+          />
+          <TeamSection
+            id="Staff"
+            title="Staff"
+            members={staffMembers}
+          />
+        </div>
+      </section>
 
       <StorySection
         id="story"
@@ -205,24 +247,13 @@ export default function AboutPage() {
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         imageSrc={aboutImageSources.story}
         imageAlt="Placeholder image representing the organization story"
+        justifyDescription
+        showSeeMore
         reverse
       />
 
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-10">
-          <TeamSection
-            id="board"
-            title="Board of Directors"
-            members={boardMembers}
-          />
-          <TeamSection
-            id="staff"
-            title="Staff"
-            members={staffMembers}
-          />
-        </div>
-      </section>
-
     </>
+    
   );
+  
 }
