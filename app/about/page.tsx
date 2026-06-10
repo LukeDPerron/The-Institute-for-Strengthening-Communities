@@ -170,24 +170,23 @@ function StorySection({
 export default function AboutPage() {
   return (
     <>
-      {/* Full-width banner — replace aboutImageSources.hero (top of file) with your final asset */}
-      <div className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-        <div className="relative h-64 overflow-hidden sm:h-80 lg:h-[420px]">
-          <Image
-            src={aboutImageSources.hero}
-            alt="About page banner"
-            fill
-            priority
-            className="object-cover"
-          />
-          {/* Dark overlay for text legibility */}
-          <div className="absolute inset-0 bg-black/40" />
-          {/* "About" label — top-left */}
-          <div className="absolute left-0 top-0 p-8 sm:p-10 lg:p-16">
-            <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
-              About
-            </h1>
-          </div>
+      {/* Full-width banner — spans edge to edge behind the transparent navbar */}
+      {/* Replace aboutImageSources.hero (top of file) with your final asset */}
+      <div className="relative h-72 w-full overflow-hidden sm:h-[360px] lg:h-[500px]">
+        <Image
+          src={aboutImageSources.hero}
+          alt="About page banner"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 bg-black/40" />
+        {/* "About" label — bottom-left, below the transparent navbar */}
+        <div className="absolute bottom-0 left-0 p-8 sm:p-10 lg:p-16">
+          <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
+            About
+          </h1>
         </div>
       </div>
 

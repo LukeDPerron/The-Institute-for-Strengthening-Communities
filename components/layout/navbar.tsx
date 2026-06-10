@@ -2,15 +2,30 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { siteConfig } from "@/lib/site-config";
 
 // Responsive header with mobile menu toggle.
+// Transparent when at the top of the page; opaque once the user scrolls down.
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <header
+      className={`fixed left-0 right-0 top-0 z-30 transition-all duration-300 ${
+        isScrolled
+          ? "border-b border-slate-200 bg-white/95 backdrop-blur"
+          : "bg-transparent"
+      }`}
+    >
       <nav
         aria-label="Main navigation"
         className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
@@ -40,7 +55,11 @@ export function Navbar() {
                   type="button"
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
-                  className="cursor-pointer text-sm font-medium text-slate-700 hover:text-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+                  className={`cursor-pointer text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
+                    isScrolled
+                      ? "text-slate-700 hover:text-orange-600"
+                      : "text-white drop-shadow hover:text-orange-200"
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -76,7 +95,11 @@ export function Navbar() {
         {/* Mobile: hamburger toggle */}
         <button
           type="button"
-          className="inline-flex items-center rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 md:hidden"
+          className={`inline-flex items-center rounded-md border px-3 py-1.5 text-sm font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 md:hidden ${
+            isScrolled
+              ? "border-slate-300 text-slate-700 hover:bg-slate-50"
+              : "border-white/60 text-white hover:bg-white/10"
+          }`}
           onClick={() => setIsOpen((current) => !current)}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
