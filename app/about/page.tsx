@@ -194,8 +194,8 @@ function StorySection({
 export default function AboutPage() {
   return (
     <>
-      {/* Full-width banner at the top of the page */}
-      <div className="relative w-full h-80 sm:h-[28rem] lg:h-[36rem] overflow-hidden">
+      {/* Full-width banner that extends under the transparent navbar */}
+      <div className="relative w-full -mt-16 h-80 sm:h-[28rem] lg:h-[36rem] overflow-hidden">
           <Image
             src={aboutImageSources.hero}
             alt="About page banner"
