@@ -3,13 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 
 // Responsive header with mobile menu toggle.
-// Transparent when at the top of the page; gains a solid background on scroll.
+// Fixed at the top of the viewport; transparent at the top, solid on scroll.
+// The top-level nav button for the current page's group is underlined.
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -17,6 +20,10 @@ export function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // A nav group is "active" when the current pathname matches any of its dropdown hrefs.
+  const isGroupActive = (item: (typeof siteConfig.navItems)[number]) =>
+    item.items.some((d) => d.href === pathname);
 
   return (
     <header
@@ -49,13 +56,18 @@ export function Navbar() {
         {/* Desktop: horizontal nav links + prominent Donate button */}
         <div className="hidden items-center gap-6 md:flex">
           <ul className="flex items-center gap-5" role="list">
-            {siteConfig.navItems.map((item) => (
+            {siteConfig.navItems.map((item) => {
+              const active = isGroupActive(item);
+              return (
               <li key={item.label} className="group relative">
                 <button
                   type="button"
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
+                  aria-current={active ? "page" : undefined}
                   className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
+                    active ? "underline underline-offset-4" : ""
+                  } ${
                     scrolled
                       ? "text-slate-700 hover:text-orange-600"
                       : "text-white drop-shadow hover:text-orange-300"
@@ -81,7 +93,8 @@ export function Navbar() {
                   ))}
                 </ul>
               </li>
-            ))}
+              );
+            })}
           </ul>
 
           <Link
@@ -125,10 +138,14 @@ export function Navbar() {
                 Donate
               </Link>
             </li>
-            {siteConfig.navItems.map((item) => (
+            {siteConfig.navItems.map((item) => {
+              const active = isGroupActive(item);
+              return (
               <li key={item.label}>
                 <details>
-                  <summary className="cursor-pointer list-none rounded-md px-2 py-2 text-[18px] font-medium text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500">
+                  <summary className={`cursor-pointer list-none rounded-md px-2 py-2 text-[18px] font-medium text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
+                    active ? "underline underline-offset-4" : ""
+                  }`}>
                     {item.label}
                   </summary>
                   <ul className="mt-1 space-y-1 pl-4">
@@ -146,7 +163,8 @@ export function Navbar() {
                   </ul>
                 </details>
               </li>
-            ))}
+              );
+            })}
           </ul>
         </div>
       )}
