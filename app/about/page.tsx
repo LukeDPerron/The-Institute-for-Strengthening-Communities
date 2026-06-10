@@ -194,9 +194,8 @@ function StorySection({
 export default function AboutPage() {
   return (
     <>
-      {/* Full-width banner — replace aboutImageSources.hero (top of file) with your final asset */}
-      <div className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6 lg:px-8">
-        <div className="relative h-64 overflow-hidden rounded-xl sm:h-80 lg:h-[420px]">
+      {/* Full-width banner that extends under the transparent navbar */}
+      <div className="relative w-full -mt-16 h-80 sm:h-[28rem] lg:h-[36rem] overflow-hidden">
           <Image
             src={aboutImageSources.hero}
             alt="About page banner"
@@ -206,14 +205,13 @@ export default function AboutPage() {
           />
           {/* Dark overlay for text legibility */}
           <div className="absolute inset-0 bg-black/40" />
-          {/* "About" label — top-left */}
-          <div className="absolute left-0 top-0 p-8 sm:p-10 lg:p-16">
+          {/* "About" label — bottom-left, always clear of the navbar */}
+          <div className="absolute left-0 bottom-0 p-8 sm:p-10 lg:p-16">
             <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
               About
             </h1>
           </div>
         </div>
-      </div>
 
       <StorySection
         id="mission"
