@@ -2,23 +2,37 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 
 // Responsive header with mobile menu toggle.
-// Positioned at the top of the page in normal document flow (not sticky/fixed).
+// Fixed at the top of the viewport; transparent at the top, solid on scroll.
 // The top-level nav button for the current page's group is underlined.
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // A nav group is "active" when the current pathname matches any of its dropdown hrefs.
   const isGroupActive = (item: (typeof siteConfig.navItems)[number]) =>
     item.items.some((d) => d.href === pathname);
 
   return (
-    <header className="w-full border-b border-slate-200 bg-white/95">
+    <header
+      className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
+        scrolled
+          ? "border-b border-slate-200 bg-white/95 backdrop-blur"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <nav
         aria-label="Main navigation"
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
@@ -51,8 +65,12 @@ export function Navbar() {
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
                   aria-current={active ? "page" : undefined}
-                  className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 text-slate-700 hover:text-orange-600 ${
+                  className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
                     active ? "underline underline-offset-4" : ""
+                  } ${
+                    scrolled
+                      ? "text-slate-700 hover:text-orange-600"
+                      : "text-white drop-shadow hover:text-orange-300"
                   }`}
                 >
                   {item.label}
@@ -90,7 +108,11 @@ export function Navbar() {
         {/* Mobile: hamburger toggle */}
         <button
           type="button"
-          className="inline-flex items-center rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 md:hidden"
+          className={`inline-flex items-center rounded-md border px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 md:hidden ${
+            scrolled
+              ? "border-slate-300 text-slate-700 hover:bg-slate-50"
+              : "border-white/70 text-white hover:bg-white/10"
+          }`}
           onClick={() => setIsOpen((current) => !current)}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
