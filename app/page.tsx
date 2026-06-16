@@ -161,13 +161,13 @@ function BoardMemberCard({ name, title, imageSrc }: BoardMember) {
 /** Top-left content box: mission quote layered over a background photo. */
 function MissionBox({ className = "" }: { className?: string }) {
   return (
-    <div className={`group relative overflow-hidden bg-slate-900 transition-transform duration-300 hover:scale-[1.01] hover:shadow-xl cursor-default ${className}`}>
+    <div className={`relative overflow-hidden bg-slate-900 ${className}`}>
       {/* Background photo */}
       <Image
         src={homepageContent.missionBg}
         alt="Mission background"
         fill
-        className="object-cover opacity-60 transition-transform duration-500 group-hover:scale-105"
+        className="object-cover opacity-60"
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/45 pointer-events-none" />
@@ -210,7 +210,7 @@ export default function Home() {
             aria-label="Board of Directors"
             className="w-full shrink-0 lg:w-56 xl:w-64 lg:sticky lg:top-20 lg:max-h-[calc(100vh-5.5rem)] lg:overflow-y-auto"
           >
-            <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div className="rounded-none border border-slate-200 bg-white p-5 shadow-sm">
               <h2 className="mb-5 text-center text-base font-bold uppercase tracking-widest text-slate-700">
                 Board of Directors
               </h2>
@@ -223,10 +223,10 @@ export default function Home() {
           </aside>
 
           {/* ── MAIN 2×2 CONTENT GRID ── */}
-          <div className="flex min-w-0 flex-1 flex-col gap-4">
+          <div className="flex min-w-0 flex-1 flex-col gap-0">
 
             {/* ── TOP ROW: Mission box + Featured photo carousel ── */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-[2fr_3fr]">
+            <div className="grid grid-cols-1 gap-0 sm:grid-cols-[2fr_3fr]">
 
               {/* Top-left: Mission statement */}
               <div className="h-[320px] sm:h-auto sm:min-h-[320px] lg:min-h-[400px]">
@@ -235,22 +235,22 @@ export default function Home() {
 
               {/* Top-right: Featured / Main Photos carousel */}
               <div
-                className="group h-[320px] sm:h-auto sm:min-h-[320px] lg:min-h-[400px] overflow-hidden rounded-lg shadow-sm transition-transform duration-300 hover:scale-[1.01] hover:shadow-xl"
+                className="h-[320px] sm:h-auto sm:min-h-[320px] lg:min-h-[400px] overflow-hidden"
                 aria-label="Featured Photos"
               >
                 <PhotoCarousel
                   slides={homepageContent.mainPhotos}
-                  className="h-full w-full rounded-lg"
+                  className="h-full w-full"
                 />
               </div>
             </div>
 
             {/* ── BOTTOM ROW: Programs/Events + Testimonies ── */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-0 sm:grid-cols-2">
 
               {/* Bottom-left: Programs / Events */}
               <div
-                className="group h-[300px] overflow-hidden rounded-lg shadow-sm transition-transform duration-300 hover:scale-[1.01] hover:shadow-xl"
+                className="h-[300px] overflow-hidden"
                 aria-label="Programs and Events"
               >
                 <div className="relative h-full w-full">
@@ -262,14 +262,14 @@ export default function Home() {
                   </div>
                   <PhotoCarousel
                     slides={homepageContent.programPhotos}
-                    className="h-full w-full rounded-lg"
+                    className="h-full w-full"
                   />
                 </div>
               </div>
 
               {/* Bottom-right: Student Testimonies */}
               <div
-                className="group h-[300px] overflow-hidden rounded-lg shadow-sm transition-transform duration-300 hover:scale-[1.01] hover:shadow-xl"
+                className="h-[300px] overflow-hidden"
                 aria-label="Student Testimonies"
               >
                 <div className="relative h-full w-full">
@@ -281,7 +281,7 @@ export default function Home() {
                   </div>
                   <PhotoCarousel
                     slides={homepageContent.testimonies}
-                    className="h-full w-full rounded-lg"
+                    className="h-full w-full"
                   />
                 </div>
               </div>

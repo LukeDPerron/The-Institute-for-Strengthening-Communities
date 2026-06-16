@@ -20,7 +20,7 @@ type PhotoCarouselProps = {
 
 /**
  * Accessible, keyboard-friendly photo carousel.
- * Arrow buttons are always visible; dot indicators allow direct slide access.
+ * Arrow buttons are always visible and loop through all slides.
  */
 export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
   const [current, setCurrent] = useState(0);
@@ -48,24 +48,6 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
         <p className="text-sm font-medium text-white text-center leading-snug">
           {slides[current].caption}
         </p>
-        {/* Dot indicators */}
-        {slides.length > 1 && (
-          <div className="flex justify-center gap-1.5 mt-2" role="tablist" aria-label="Slides">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                role="tab"
-                aria-selected={i === current}
-                aria-label={`Slide ${i + 1}`}
-                onClick={() => setCurrent(i)}
-                className={`rounded-full transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-white ${
-                  i === current ? "h-2 w-5 bg-white" : "h-2 w-2 bg-white/50 hover:bg-white/80"
-                }`}
-              />
-            ))}
-          </div>
-        )}
       </div>
 
       {/* Previous arrow — centered vertically on left */}
