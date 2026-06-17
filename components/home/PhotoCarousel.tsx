@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export type CarouselSlide = {
   /** Path to the photo — replace placeholder image values in app/page.tsx */
@@ -79,7 +79,7 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
           aria-label="Previous photo"
           className="absolute left-2 top-1/2 z-30 -translate-y-1/2 text-4xl text-white/90 pointer-events-auto hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
-          <IoArrowBackCircle />
+          <FaArrowCircleLeft />
         </button>
       )}
 
@@ -91,7 +91,7 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
           aria-label="Next photo"
           className="absolute right-2 top-1/2 z-30 -translate-y-1/2 text-4xl text-white/90 pointer-events-auto hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
-          <IoArrowForwardCircle />
+          <FaArrowCircleRight />
         </button>
       )}
     </div>
