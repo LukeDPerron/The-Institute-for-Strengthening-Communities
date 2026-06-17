@@ -198,8 +198,7 @@ function MissionBox({ className = "" }: { className?: string }) {
 
 export default function Home() {
   return (
-    // Top padding clears the fixed navbar while keeping homepage content visually connected.
-    <div className="bg-slate-50 pt-20">
+    <div className="bg-slate-50">
       <div className="mx-auto w-full max-w-[1500px] px-4 py-0 sm:px-6 lg:px-8">
 
         {/* ── Outer layout: sidebar + main grid ── */}
