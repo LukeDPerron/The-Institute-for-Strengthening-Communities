@@ -199,10 +199,10 @@ function MissionBox({ className = "" }: { className?: string }) {
 export default function Home() {
   return (
     <div className="bg-slate-50">
-      <div className="mx-auto w-full max-w-[1500px] px-4 py-0 sm:px-6 lg:px-8">
+      <div className="w-full py-0">
 
         {/* ── Outer layout: sidebar + main grid ── */}
-        <div className="grid grid-cols-1 gap-0 lg:grid-cols-[210px_minmax(0,1fr)]">
+        <div className="grid grid-cols-1 gap-px lg:grid-cols-[210px_minmax(0,1fr)]">
 
           {/* ── LEFT SIDEBAR: Board of Directors ── */}
           <aside
@@ -225,7 +225,7 @@ export default function Home() {
           <div className="min-w-0">
 
             {/* ── TOP ROW: Mission box + Featured photo carousel ── */}
-            <div className="grid grid-cols-1 gap-0 sm:grid-cols-[2fr_3.25fr]">
+            <div className="grid grid-cols-1 gap-px sm:grid-cols-[2fr_3.25fr]">
 
               {/* Top-left: Mission statement */}
               <div className="h-[400px] sm:h-auto sm:min-h-[425px] lg:min-h-[475px]">
@@ -245,7 +245,7 @@ export default function Home() {
             </div>
 
             {/* ── BOTTOM ROW: Programs/Events + Testimonies ── */}
-            <div className="grid grid-cols-1 gap-0 sm:grid-cols-2">
+            <div className="mt-px grid grid-cols-1 gap-px sm:grid-cols-2">
 
               {/* Bottom-left: Programs / Events */}
               <div
