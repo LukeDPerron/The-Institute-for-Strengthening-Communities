@@ -6,8 +6,13 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 
+// Pages that have a full-width hero/banner image behind the navbar.
+// On these pages the navbar starts transparent and turns white on scroll.
+// On all other pages the navbar is always white.
+const BANNER_PAGES = ["/about"];
+
 // Responsive header with mobile menu toggle.
-// Fixed at the top of the viewport; transparent at the top, solid on scroll.
+// Fixed at the top of the viewport; transparent at the top on banner pages, solid on scroll or on non-banner pages.
 // The top-level nav button for the current page's group is underlined.
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +26,10 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const hasBanner = BANNER_PAGES.includes(pathname);
+  // Show white/solid navbar whenever the user has scrolled OR the page has no banner.
+  const isWhite = scrolled || !hasBanner;
+
   // A nav group is "active" when the current pathname matches any of its dropdown hrefs.
   const isGroupActive = (item: (typeof siteConfig.navItems)[number]) =>
     item.items.some((d) => d.href === pathname);
@@ -28,7 +37,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-        scrolled
+        isWhite
           ? "border-b border-slate-200 bg-white/95 backdrop-blur"
           : "border-b border-transparent bg-transparent"
       }`}
@@ -68,7 +77,7 @@ export function Navbar() {
                   className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
                     active ? "underline underline-offset-4" : ""
                   } ${
-                    scrolled
+                    isWhite
                       ? "text-slate-700 hover:text-orange-600"
                       : "text-white drop-shadow hover:text-orange-300"
                   }`}
@@ -109,7 +118,7 @@ export function Navbar() {
         <button
           type="button"
           className={`inline-flex items-center rounded-md border px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 md:hidden ${
-            scrolled
+            isWhite
               ? "border-slate-300 text-slate-700 hover:bg-slate-50"
               : "border-white/70 text-white hover:bg-white/10"
           }`}
