@@ -15,13 +15,13 @@
 //     Replace with the real background photo for the mission box.
 //
 //  4. MAIN PHOTOS    — homepageContent.mainPhotos (~line 90)
-//     Replace src, alt, and caption for each featured gallery photo.
+//     Replace image, caption, and optional title for each featured gallery photo.
 //
 //  5. PROGRAMS/EVENTS — homepageContent.programPhotos (~line 110)
-//     Replace src, alt, and caption for each program or event photo.
+//     Replace image, caption, and optional title for each program or event photo.
 //
 //  6. TESTIMONIES    — homepageContent.testimonies (~line 130)
-//     Replace src, alt, and caption for each student testimony card.
+//     Replace image, caption, and optional title for each student testimony card.
 // ============================================================
 
 import Image from "next/image";
@@ -77,61 +77,61 @@ const homepageContent = {
   // 3. Replace with the real mission-box background image path.
   missionBg: "/images/about/Mission.png",
 
-  // 4. Replace each object's src/alt/caption with real featured photos.
+  // 4. Replace each object's image/caption/title with real featured photos.
   mainPhotos: [
     {
-      src: "/images/about/Header.jpg",
-      alt: "Placeholder: featured photo 1",
+      image: "/images/about/Header.jpg",
+      title: "Main Photos",
       caption: "Featured photo caption — replace with a real description",
     },
     {
-      src: "/images/about/header1.png",
-      alt: "Placeholder: featured photo 2",
+      image: "/images/about/header1.png",
+      title: "Main Photos",
       caption: "Featured photo caption — replace with a real description",
     },
     {
-      src: "/images/about/Our-Story.png",
-      alt: "Placeholder: featured photo 3",
+      image: "/images/about/Our-Story.png",
+      title: "Main Photos",
       caption: "Featured photo caption — replace with a real description",
     },
   ] satisfies CarouselSlide[],
 
-  // 5. Replace each object's src/alt/caption with real program or event photos.
+  // 5. Replace each object's image/caption/title with real program or event photos.
   programPhotos: [
     {
-      src: "/images/about/header1.png",
-      alt: "Placeholder: program or event photo 1",
+      image: "/images/about/header1.png",
+      title: "Programs & Events",
       caption: "Program / Event name — replace with a real caption",
     },
     {
-      src: "/images/about/Our-Story.png",
-      alt: "Placeholder: program or event photo 2",
+      image: "/images/about/Our-Story.png",
+      title: "Programs & Events",
       caption: "Program / Event name — replace with a real caption",
     },
     {
-      src: "/images/about/Header.jpg",
-      alt: "Placeholder: program or event photo 3",
+      image: "/images/about/Header.jpg",
+      title: "Programs & Events",
       caption: "Program / Event name — replace with a real caption",
     },
   ] satisfies CarouselSlide[],
 
-  // 6. Replace each object with a real student photo and their testimony text.
+  // 6. Replace each object with a real student photo, testimony text, and optional title.
   testimonies: [
     {
-      src: "/images/about/femaleplace.jpg",
-      alt: "Placeholder: student photo 1",
+      image: "/images/about/femaleplace.jpg",
+      title: "Student Testimonies",
       caption:
         '"This program changed how I see my community." — Student Name',
     },
     {
-      src: "/images/about/Maleplace.png",
-      alt: "Placeholder: student photo 2",
+      image: "/images/about/Maleplace.png",
+      title: "Student Testimonies",
       caption:
         '"I learned skills I use every single day." — Student Name',
     },
     {
-      src: "/images/about/Hailey_headshot.jpg",
-      alt: "Placeholder: student photo 3",
+      image: "/images/about/Hailey_headshot.jpg",
+      title: "Student Testimonies",
       caption:
         '"An experience I will never forget." — Student Name',
     },
@@ -144,7 +144,7 @@ const homepageContent = {
 function BoardMemberCard({ name, title, imageSrc }: BoardMember) {
   return (
     <article className="flex flex-col items-center text-center">
-      <div className="relative h-20 w-20 overflow-hidden rounded-sm bg-slate-100 ring-1 ring-slate-200">
+      <div className="relative h-20 w-20 overflow-hidden rounded-none bg-slate-100 ring-1 ring-slate-200">
         <Image
           src={imageSrc}
           alt={`Headshot of ${name}`}
@@ -198,19 +198,19 @@ function MissionBox({ className = "" }: { className?: string }) {
 
 export default function Home() {
   return (
-    // pt-16/pt-20 clears the fixed Navbar (≈ 60–70 px tall)
-    <div className="pt-16 lg:pt-20 bg-slate-50">
-      <div className="mx-auto max-w-[90rem] px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+    // Top padding clears the fixed navbar while keeping homepage content visually connected.
+    <div className="bg-slate-50 pt-14 lg:pt-16">
+      <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6">
 
         {/* ── Outer flex: sidebar + main grid ── */}
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-8">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-0">
 
           {/* ── LEFT SIDEBAR: Board of Directors ── */}
           <aside
             aria-label="Board of Directors"
-            className="w-full shrink-0 lg:w-56 xl:w-64 lg:sticky lg:top-20 lg:max-h-[calc(100vh-5.5rem)] lg:overflow-y-auto"
+            className="w-full shrink-0 lg:w-64 xl:w-72"
           >
-            <div className="rounded-none border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="h-full rounded-none border border-slate-200 bg-white p-5 shadow-sm">
               <h2 className="mb-5 text-center text-base font-bold uppercase tracking-widest text-slate-700">
                 Board of Directors
               </h2>
@@ -229,13 +229,13 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-0 sm:grid-cols-[2fr_3fr]">
 
               {/* Top-left: Mission statement */}
-              <div className="h-[320px] sm:h-auto sm:min-h-[320px] lg:min-h-[400px]">
+              <div className="h-[340px] sm:h-auto sm:min-h-[360px] lg:min-h-[460px]">
                 <MissionBox className="h-full w-full" />
               </div>
 
               {/* Top-right: Featured / Main Photos carousel */}
               <div
-                className="h-[320px] sm:h-auto sm:min-h-[320px] lg:min-h-[400px] overflow-hidden"
+                className="h-[340px] overflow-hidden rounded-none sm:h-auto sm:min-h-[360px] lg:min-h-[460px]"
                 aria-label="Featured Photos"
               >
                 <PhotoCarousel
@@ -250,7 +250,7 @@ export default function Home() {
 
               {/* Bottom-left: Programs / Events */}
               <div
-                className="h-[300px] overflow-hidden"
+                className="h-[330px] overflow-hidden rounded-none lg:min-h-[360px]"
                 aria-label="Programs and Events"
               >
                 <div className="relative h-full w-full">
@@ -269,7 +269,7 @@ export default function Home() {
 
               {/* Bottom-right: Student Testimonies */}
               <div
-                className="h-[300px] overflow-hidden"
+                className="h-[330px] overflow-hidden rounded-none lg:min-h-[360px]"
                 aria-label="Student Testimonies"
               >
                 <div className="relative h-full w-full">
@@ -292,4 +292,3 @@ export default function Home() {
     </div>
   );
 }
-

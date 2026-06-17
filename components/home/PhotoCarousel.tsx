@@ -4,12 +4,12 @@ import { useState } from "react";
 import Image from "next/image";
 
 export type CarouselSlide = {
-  /** Path to the photo — replace placeholder src values in app/page.tsx */
-  src: string;
-  /** Accessible description of the photo */
-  alt: string;
+  /** Path to the photo — replace placeholder image values in app/page.tsx */
+  image: string;
   /** Caption rendered at the bottom of the slide */
   caption: string;
+  /** Optional short title rendered above the caption */
+  title?: string;
 };
 
 type PhotoCarouselProps = {
@@ -23,30 +23,44 @@ type PhotoCarouselProps = {
  * Arrow buttons are always visible and loop through all slides.
  */
 export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
-  const [current, setCurrent] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   if (slides.length === 0) return null;
 
-  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
-  const next = () => setCurrent((c) => (c + 1) % slides.length);
+  const prevSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    setCurrentIndex((previous) => (previous - 1 + slides.length) % slides.length);
+  };
+
+  const nextSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    setCurrentIndex((previous) => (previous + 1) % slides.length);
+  };
+
+  const currentSlide = slides[currentIndex];
 
   return (
     <div className={`relative overflow-hidden ${className}`} role="region" aria-label="Photo carousel">
       {/* Background photo */}
       <Image
-        src={slides[current].src}
-        alt={slides[current].alt}
+        src={currentSlide.image}
+        alt={currentSlide.title ?? currentSlide.caption}
         fill
-        className="object-cover transition-opacity duration-300"
+        className="object-cover"
       />
 
       {/* Subtle dark overlay so caption and arrows stay readable */}
       <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
       {/* Caption bar */}
-      <div className="absolute bottom-0 inset-x-0 bg-black/55 px-4 py-3 z-10">
+      <div className="absolute bottom-0 inset-x-0 z-10 bg-black/55 px-4 py-3">
+        {currentSlide.title && (
+          <p className="text-xs font-semibold uppercase tracking-wider text-white text-center">
+            {currentSlide.title}
+          </p>
+        )}
         <p className="text-sm font-medium text-white text-center leading-snug">
-          {slides[current].caption}
+          {currentSlide.caption}
         </p>
       </div>
 
@@ -54,9 +68,9 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
       {slides.length > 1 && (
         <button
           type="button"
-          onClick={prev}
+          onClick={prevSlide}
           aria-label="Previous photo"
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white text-2xl leading-none hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white transition-colors"
+          className="absolute left-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
           ‹
         </button>
@@ -66,9 +80,9 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
       {slides.length > 1 && (
         <button
           type="button"
-          onClick={next}
+          onClick={nextSlide}
           aria-label="Next photo"
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white text-2xl leading-none hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white transition-colors"
+          className="absolute right-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
           ›
         </button>
