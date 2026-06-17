@@ -229,13 +229,13 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-0 sm:grid-cols-[2fr_3.25fr]">
 
               {/* Top-left: Mission statement */}
-              <div className="h-[450px] sm:h-auto sm:min-h-[475px] lg:min-h-[530px]">
+              <div className="h-[400px] sm:h-auto sm:min-h-[425px] lg:min-h-[475px]">
                 <MissionBox className="h-full w-full" />
               </div>
 
               {/* Top-right: Featured / Main Photos carousel */}
               <div
-                className="h-[450px] overflow-hidden rounded-none sm:h-auto sm:min-h-[475px] lg:min-h-[530px]"
+                className="h-[400px] overflow-hidden rounded-none sm:h-auto sm:min-h-[425px] lg:min-h-[475px]"
                 aria-label="Featured Photos"
               >
                 <PhotoCarousel
@@ -250,7 +250,7 @@ export default function Home() {
 
               {/* Bottom-left: Programs / Events */}
               <div
-                className="h-[420px] overflow-hidden rounded-none lg:min-h-[450px]"
+                className="h-[375px] overflow-hidden rounded-none lg:min-h-[405px]"
                 aria-label="Programs and Events"
               >
                 <div className="relative h-full w-full">
@@ -269,7 +269,7 @@ export default function Home() {
 
               {/* Bottom-right: Student Testimonies */}
               <div
-                className="h-[420px] overflow-hidden rounded-none lg:min-h-[450px]"
+                className="h-[375px] overflow-hidden rounded-none lg:min-h-[405px]"
                 aria-label="Student Testimonies"
               >
                 <div className="relative h-full w-full">
