@@ -24,23 +24,29 @@ type PhotoCarouselProps = {
  */
 export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = slides.length;
 
-  if (slides.length === 0) return null;
+  if (totalSlides === 0) return null;
+
+  const getPreviousIndex = (index: number) => (index - 1 + totalSlides) % totalSlides;
+  const getNextIndex = (index: number) => (index + 1) % totalSlides;
 
   const prevSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     event.stopPropagation();
-    setCurrentIndex((previous) => (previous - 1 + slides.length) % slides.length);
+    setCurrentIndex((previous) => getPreviousIndex(previous));
   };
 
   const nextSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
     event.stopPropagation();
-    setCurrentIndex((previous) => (previous + 1) % slides.length);
+    setCurrentIndex((previous) => getNextIndex(previous));
   };
 
   const currentSlide = slides[currentIndex];
 
   return (
-    <div className={`relative overflow-hidden ${className}`} role="region" aria-label="Photo carousel">
+    <div className={`relative isolate overflow-hidden ${className}`} role="region" aria-label="Photo carousel">
       {/* Background photo */}
       <Image
         src={currentSlide.image}
@@ -65,24 +71,24 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
       </div>
 
       {/* Previous arrow — centered vertically on left */}
-      {slides.length > 1 && (
+      {totalSlides > 1 && (
         <button
           type="button"
           onClick={prevSlide}
           aria-label="Previous photo"
-          className="absolute left-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          className="absolute left-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
           ‹
         </button>
       )}
 
       {/* Next arrow — centered vertically on right */}
-      {slides.length > 1 && (
+      {totalSlides > 1 && (
         <button
           type="button"
           onClick={nextSlide}
           aria-label="Next photo"
-          className="absolute right-2 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          className="absolute right-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
           ›
         </button>

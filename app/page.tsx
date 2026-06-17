@@ -199,18 +199,18 @@ function MissionBox({ className = "" }: { className?: string }) {
 export default function Home() {
   return (
     // Top padding clears the fixed navbar while keeping homepage content visually connected.
-    <div className="bg-slate-50 pt-14 lg:pt-16">
-      <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-6">
+    <div className="bg-slate-50 pt-20">
+      <div className="mx-auto w-full max-w-[1500px] px-4 py-0 sm:px-6 lg:px-8">
 
-        {/* ── Outer flex: sidebar + main grid ── */}
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-stretch lg:gap-0">
+        {/* ── Outer layout: sidebar + main grid ── */}
+        <div className="grid grid-cols-1 gap-0 lg:grid-cols-[210px_minmax(0,1fr)]">
 
           {/* ── LEFT SIDEBAR: Board of Directors ── */}
           <aside
             aria-label="Board of Directors"
-            className="w-full shrink-0 lg:w-64 xl:w-72"
+            className="w-full"
           >
-          <div className="h-full rounded-none border border-slate-200 bg-white p-5 shadow-sm">
+          <div className="h-full rounded-none border border-slate-200 bg-white p-4">
               <h2 className="mb-5 text-center text-base font-bold uppercase tracking-widest text-slate-700">
                 Board of Directors
               </h2>
@@ -223,19 +223,19 @@ export default function Home() {
           </aside>
 
           {/* ── MAIN 2×2 CONTENT GRID ── */}
-          <div className="flex min-w-0 flex-1 flex-col gap-0">
+          <div className="min-w-0">
 
             {/* ── TOP ROW: Mission box + Featured photo carousel ── */}
-            <div className="grid grid-cols-1 gap-0 sm:grid-cols-[2fr_3fr]">
+            <div className="grid grid-cols-1 gap-0 sm:grid-cols-[2fr_3.25fr]">
 
               {/* Top-left: Mission statement */}
-              <div className="h-[340px] sm:h-auto sm:min-h-[360px] lg:min-h-[460px]">
+              <div className="h-[320px] sm:h-auto sm:min-h-[340px] lg:min-h-[380px]">
                 <MissionBox className="h-full w-full" />
               </div>
 
               {/* Top-right: Featured / Main Photos carousel */}
               <div
-                className="h-[340px] overflow-hidden rounded-none sm:h-auto sm:min-h-[360px] lg:min-h-[460px]"
+                className="h-[320px] overflow-hidden rounded-none sm:h-auto sm:min-h-[340px] lg:min-h-[380px]"
                 aria-label="Featured Photos"
               >
                 <PhotoCarousel
@@ -250,7 +250,7 @@ export default function Home() {
 
               {/* Bottom-left: Programs / Events */}
               <div
-                className="h-[330px] overflow-hidden rounded-none lg:min-h-[360px]"
+                className="h-[300px] overflow-hidden rounded-none lg:min-h-[320px]"
                 aria-label="Programs and Events"
               >
                 <div className="relative h-full w-full">
@@ -269,7 +269,7 @@ export default function Home() {
 
               {/* Bottom-right: Student Testimonies */}
               <div
-                className="h-[330px] overflow-hidden rounded-none lg:min-h-[360px]"
+                className="h-[300px] overflow-hidden rounded-none lg:min-h-[320px]"
                 aria-label="Student Testimonies"
               >
                 <div className="relative h-full w-full">
