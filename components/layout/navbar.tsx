@@ -23,7 +23,7 @@ export function Navbar() {
 
   // A nav group is "active" when the current pathname matches any of its dropdown hrefs.
   const isGroupActive = (item: (typeof siteConfig.navItems)[number]) =>
-    item.items.some((d) => d.href === pathname);
+    item.items.some((d) => d.href.split("#")[0] === pathname);
 
   return (
     <header
@@ -58,10 +58,11 @@ export function Navbar() {
           <ul className="flex items-center gap-5" role="list">
             {siteConfig.navItems.map((item) => {
               const active = isGroupActive(item);
+              const groupHref = item.items[0]?.href.split("#")[0] ?? "/";
               return (
               <li key={item.label} className="group relative">
-                <button
-                  type="button"
+                <Link
+                  href={groupHref}
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
                   aria-current={active ? "page" : undefined}
@@ -74,7 +75,7 @@ export function Navbar() {
                   }`}
                 >
                   {item.label}
-                </button>
+                </Link>
 
                 <ul
                   role="menu"

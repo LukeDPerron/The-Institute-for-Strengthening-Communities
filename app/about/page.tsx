@@ -89,6 +89,7 @@ function PersonCard({
           src={imageSrc}
           alt={`Headshot of ${name}`}
           fill
+          sizes="(max-width: 640px) 100vw, 25vw"
           className="object-cover"
         />
       </div>
@@ -102,20 +103,17 @@ function PersonCard({
 
 function TeamSection({
   id,
-  title,
   members,
 }: {
   id: string;
-  title: string;
   members: TeamMember[];
 }) {
   return (
     <section id={id}>
-      <h2 className="text-3xl font-bold tracking-tight text-slate-900">{title}</h2>
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
-        {members.map((member) => (
+        {members.map((member, index) => (
           <PersonCard
-            key={member.name}
+            key={`${id}-${index}`}
             name={member.name}
             role={member.role}
             imageSrc={member.imageSrc}
@@ -201,16 +199,11 @@ export default function AboutPage() {
             alt="About page banner"
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
           {/* Dark overlay for text legibility */}
           <div className="absolute inset-0 bg-black/40" />
-          {/* "About" label — bottom-left, always clear of the navbar */}
-          <div className="absolute left-0 bottom-0 p-8 sm:p-10 lg:p-16">
-            <h1 className="text-5xl font-bold tracking-tight text-white drop-shadow-lg sm:text-6xl lg:text-7xl">
-              About
-            </h1>
-          </div>
         </div>
 
       <StorySection
@@ -225,15 +218,16 @@ export default function AboutPage() {
 
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-10">
+        <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">
+          Board of Directors &amp; Staff
+        </h2>
+        <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-8">
           <TeamSection
-            id="Board of Directors"
-            title="Board of Directors"
+            id="board-of-directors"
             members={boardMembers}
           />
           <TeamSection
-            id="Staff"
-            title="Staff"
+            id="staff"
             members={staffMembers}
           />
         </div>

@@ -16,10 +16,10 @@ export const siteConfig = {
     {
       label: "About",
       items: [
-        { href: "/about", label: "Mission Statement" },
-        { href: "/about", label: "Board of Directors" },
-        { href: "/about", label: "Staff" },
-        { href: "/about", label: "Our Story" },
+        { href: "/about#mission", label: "Mission Statement" },
+        { href: "/about#board-of-directors", label: "Board of Directors" },
+        { href: "/about#staff", label: "Staff" },
+        { href: "/about#story", label: "Our Story" },
       ],
     },
     {

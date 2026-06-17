@@ -72,7 +72,7 @@ const boardMembers: BoardMember[] = [
 const homepageContent = {
   // 2. Replace this quote with the real mission statement excerpt.
   missionQuote:
-    "Educating individuals and communities in democratic and restorative principles that strengthen trust, civic engagement, and collaboration.",
+    "Quote from mission statement",
 
   // 3. Replace with the real mission-box background image path.
   missionBg: "/images/about/Mission.png",
@@ -82,17 +82,17 @@ const homepageContent = {
     {
       image: "/images/about/Header.jpg",
       title: "Main Photos",
-      caption: "Featured photo caption — replace with a real description",
+      caption: "Filler text",
     },
     {
       image: "/images/about/header1.png",
-      title: "Main Photos",
-      caption: "Featured photo caption — replace with a real description",
+      title: "Main tavci",
+      caption: "Filler text 2",
     },
     {
       image: "/images/about/Our-Story.png",
       title: "Main Photos",
-      caption: "Featured photo caption — replace with a real description",
+      caption: "Filler text 3",
     },
   ] satisfies CarouselSlide[],
 
@@ -101,17 +101,17 @@ const homepageContent = {
     {
       image: "/images/about/header1.png",
       title: "Programs & Events",
-      caption: "Program / Event name — replace with a real caption",
+      caption: "Filler text 4",
     },
     {
       image: "/images/about/Our-Story.png",
       title: "Programs & Events",
-      caption: "Program / Event name — replace with a real caption",
+      caption: "Filler text 5",
     },
     {
       image: "/images/about/Header.jpg",
       title: "Programs & Events",
-      caption: "Program / Event name — replace with a real caption",
+      caption: "Filler text 6",
     },
   ] satisfies CarouselSlide[],
 
@@ -121,19 +121,19 @@ const homepageContent = {
       image: "/images/about/femaleplace.jpg",
       title: "Student Testimonies",
       caption:
-        '"This program changed how I see my community." — Student Name',
+        'Filler text 7',
     },
     {
       image: "/images/about/Maleplace.png",
       title: "Student Testimonies",
       caption:
-        '"I learned skills I use every single day." — Student Name',
+        'Filler text 8',
     },
     {
       image: "/images/about/Hailey_headshot.jpg",
       title: "Student Testimonies",
       caption:
-        '"An experience I will never forget." — Student Name',
+        'Filler text 9',
     },
   ] satisfies CarouselSlide[],
 };
@@ -252,18 +252,10 @@ export default function Home() {
                 className="h-[375px] overflow-hidden rounded-none lg:min-h-[405px]"
                 aria-label="Programs and Events"
               >
-                <div className="relative h-full w-full">
-                  {/* Section label overlay */}
-                  <div className="absolute top-0 inset-x-0 z-10 bg-black/50 px-4 py-2 text-center">
-                    <p className="text-xs font-bold uppercase tracking-widest text-white">
-                      Programs &amp; Events
-                    </p>
-                  </div>
-                  <PhotoCarousel
-                    slides={homepageContent.programPhotos}
-                    className="h-full w-full"
-                  />
-                </div>
+                <PhotoCarousel
+                  slides={homepageContent.programPhotos}
+                  className="h-full w-full"
+                />
               </div>
 
               {/* Bottom-right: Student Testimonies */}
@@ -271,18 +263,10 @@ export default function Home() {
                 className="h-[375px] overflow-hidden rounded-none lg:min-h-[405px]"
                 aria-label="Student Testimonies"
               >
-                <div className="relative h-full w-full">
-                  {/* Section label overlay */}
-                  <div className="absolute top-0 inset-x-0 z-10 bg-black/50 px-4 py-2 text-center">
-                    <p className="text-xs font-bold uppercase tracking-widest text-white">
-                      Student Testimonies
-                    </p>
-                  </div>
-                  <PhotoCarousel
-                    slides={homepageContent.testimonies}
-                    className="h-full w-full"
-                  />
-                </div>
+                <PhotoCarousel
+                  slides={homepageContent.testimonies}
+                  className="h-full w-full"
+                />
               </div>
             </div>
           </div>

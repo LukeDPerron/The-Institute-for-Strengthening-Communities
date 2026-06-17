@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 
 export type CarouselSlide = {
   /** Path to the photo — replace placeholder image values in app/page.tsx */
@@ -52,19 +53,22 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
         src={currentSlide.image}
         alt={currentSlide.title ?? currentSlide.caption}
         fill
+        sizes="100vw"
         className="object-cover"
       />
 
       {/* Subtle dark overlay so caption and arrows stay readable */}
       <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
+      {/* Slide position indicator to make carousel movement obvious */}
+      {totalSlides > 1 && (
+        <div className="absolute right-2 top-2 z-20 rounded-none bg-black/55 px-2 py-1 text-xs font-semibold text-white">
+          {currentIndex + 1}/{totalSlides}
+        </div>
+      )}
+
       {/* Caption bar */}
       <div className="absolute bottom-0 inset-x-0 z-10 bg-black/55 px-4 py-3">
-        {currentSlide.title && (
-          <p className="text-xs font-semibold uppercase tracking-wider text-white text-center">
-            {currentSlide.title}
-          </p>
-        )}
         <p className="text-sm font-medium text-white text-center leading-snug">
           {currentSlide.caption}
         </p>
@@ -76,9 +80,9 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
           type="button"
           onClick={prevSlide}
           aria-label="Previous photo"
-          className="absolute left-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          className="absolute left-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none text-2xl leading-none text-white pointer-events-auto transition-transform duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
-          ‹
+          <IoArrowBackCircle aria-hidden="true" className="h-7 w-7" />
         </button>
       )}
 
@@ -88,9 +92,9 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
           type="button"
           onClick={nextSlide}
           aria-label="Next photo"
-          className="absolute right-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          className="absolute right-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none text-2xl leading-none text-white pointer-events-auto transition-transform duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
-          ›
+          <IoArrowForwardCircle aria-hidden="true" className="h-7 w-7" />
         </button>
       )}
     </div>
