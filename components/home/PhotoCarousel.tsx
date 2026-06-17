@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export type CarouselSlide = {
   /** Path to the photo — replace placeholder image values in app/page.tsx */
@@ -77,9 +76,9 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
           type="button"
           onClick={prevSlide}
           aria-label="Previous photo"
-          className="absolute left-2 top-1/2 z-30 -translate-y-1/2 text-4xl text-white/90 pointer-events-auto hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          className="absolute left-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
-          <FaArrowCircleLeft />
+          ‹
         </button>
       )}
 
@@ -89,9 +88,9 @@ export function PhotoCarousel({ slides, className = "" }: PhotoCarouselProps) {
           type="button"
           onClick={nextSlide}
           aria-label="Next photo"
-          className="absolute right-2 top-1/2 z-30 -translate-y-1/2 text-4xl text-white/90 pointer-events-auto hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+          className="absolute right-2 top-1/2 z-30 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-none bg-black/50 text-2xl leading-none text-white pointer-events-auto hover:bg-black/75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
         >
-          <FaArrowCircleRight />
+          ›
         </button>
       )}
     </div>
