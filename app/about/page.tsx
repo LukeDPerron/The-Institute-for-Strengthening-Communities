@@ -39,14 +39,21 @@ function PersonCard({
 
 function TeamSection({
   id,
+  title,
   members,
 }: {
   id: string;
+  title: string;
   members: TeamMember[];
 }) {
+  if (members.length === 0) {
+    return null;
+  }
+
   return (
     <section id={id}>
-      <div className="mt-8 grid gap-6 sm:grid-cols-2">
+      <h3 className="text-2xl font-semibold tracking-tight text-slate-900">{title}</h3>
+      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {members.map((member, index) => (
           <PersonCard
             key={`${id}-${index}`}
@@ -95,7 +102,7 @@ function StorySection({
   };
 
   return (
-    <section id={id} className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <section id={id} className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <div
         className={`grid items-center gap-10 lg:grid-cols-2 ${
           reverse ? "lg:[&>*:first-child]:order-2" : ""
@@ -168,17 +175,19 @@ export default function AboutPage() {
 
 
 
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
           Our Team
         </h2>
-        <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-8">
+        <div className="mt-12 space-y-14">
           <TeamSection
             id="board-of-directors"
+            title="Board of Directors"
             members={boardMembers}
           />
           <TeamSection
             id="staff"
+            title="Staff"
             members={staffMembers}
           />
         </div>

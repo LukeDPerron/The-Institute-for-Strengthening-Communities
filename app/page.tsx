@@ -27,12 +27,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PhotoCarousel } from "@/components/home/PhotoCarousel";
-import { boardMembers, homepageContent, type TeamMember } from "@/lib/cms/homepage-content";
+import { homepageContent } from "@/lib/cms/homepage-content";
+import { boardMembers, type TeamMember } from "@/lib/cms/about-content";
+
+function getMemberAnchor(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
 
 // ── LOCAL COMPONENTS ──────────────────────────────────────────────────────────
 
 /** Small card displayed in the Board of Directors sidebar. */
-function BoardMemberCard({ name, title, imageSrc }: TeamMember) {
+function BoardMemberCard({ name, role, imageSrc }: TeamMember) {
   return (
     <article className="flex w-28 shrink-0 flex-col items-center text-center lg:w-auto lg:shrink">
       <div className="relative h-20 w-20 overflow-hidden rounded-none bg-slate-100 ring-1 ring-slate-200">
@@ -46,13 +51,13 @@ function BoardMemberCard({ name, title, imageSrc }: TeamMember) {
       </div>
       <p className="mt-2 text-sm font-semibold text-slate-900 leading-tight">
         <Link
-          href="/board-of-directors"
+          href={`/board-of-directors#${getMemberAnchor(name)}`}
           className="transition-colors hover:text-orange-700 hover:underline"
         >
           {name}
         </Link>
       </p>
-      <p className="text-xs text-slate-500 leading-tight">{title}</p>
+      <p className="text-xs text-slate-500 leading-tight">{role}</p>
     </article>
   );
 }
@@ -73,11 +78,11 @@ function MissionBox({ className = "" }: { className?: string }) {
       <div className="absolute inset-0 bg-black/45 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-7 py-12 text-center">
-        <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.16em] text-white sm:text-3xl">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 py-12 text-center sm:px-12">
+        <p className="mb-4 text-3xl font-extrabold uppercase tracking-[0.14em] text-white sm:text-4xl">
           Stronger Communities. 
         </p>
-        <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.16em] text-orange-500 sm:text-3xl">
+        <p className="mb-6 text-3xl font-extrabold uppercase tracking-[0.14em] text-orange-500 sm:text-4xl">
         Better Futures.
         </p>
         <blockquote className="mx-auto w-[75%]">
@@ -87,7 +92,7 @@ function MissionBox({ className = "" }: { className?: string }) {
         </blockquote>
         <Link
           href="/about"
-          className="mt-9 inline-flex items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-xl font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+          className="mt-8 inline-flex items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-xl font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
         >
           Our Mission
         </Link>
@@ -101,39 +106,39 @@ function MissionBox({ className = "" }: { className?: string }) {
 export default function Home() {
   return (
     <div className="bg-slate-50">
-      <div className="w-full py-0">
+      <div className="w-full bg-[#f6f7f9] px-2 pb-0 pt-3 sm:px-3 sm:pb-0 sm:pt-3">
 
         {/* ── Outer layout: sidebar + main grid ── */}
-        <div className="grid grid-cols-1 gap-px lg:grid-cols-[210px_minmax(0,1fr)]">
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-[240px_minmax(0,1fr)]">
 
           {/* ── LEFT SIDEBAR: Board of Directors ── */}
           <aside
             aria-label="Board of Directors"
             className="order-last w-full lg:order-none"
           >
-          <div className="h-full rounded-none border border-slate-200 bg-white p-4">
-              <h2 className="mb-5 text-center text-base font-bold uppercase tracking-widest text-slate-700">
+          <div className="rounded-[4px] border border-[#e7e7e7] bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] lg:max-h-[760px] lg:overflow-y-auto lg:p-3 xl:max-h-[800px] 2xl:max-h-[860px]">
+              <h2 className="mb-5 text-center text-base font-bold uppercase tracking-widest text-slate-700 lg:mb-4">
                 Board of Directors
               </h2>
-              <div className="flex gap-4 overflow-x-auto pb-2 lg:block lg:space-y-6 lg:overflow-visible lg:pb-0">
+              <div className="flex gap-3 overflow-x-auto pb-2 lg:block lg:space-y-3 lg:overflow-visible lg:pb-0">
                 {boardMembers.map((member) => (
-                  <BoardMemberCard key={`${member.name}-${member.title}`} {...member} />
+                  <BoardMemberCard key={`${member.name}-${member.role}`} {...member} />
                 ))}
               </div>
             </div>
           </aside>
 
           {/*MAIN CONTENT GRID*/}
-          <div className="order-first min-w-0 grid grid-cols-1 gap-px sm:grid-cols-2 lg:order-none">
+          <div className="order-first min-w-0 self-start grid grid-cols-1 gap-3 sm:grid-cols-2 lg:order-none">
 
             {/* Top box: Mission statement */}
-            <div className="h-[88dvh] sm:col-span-2 sm:h-auto sm:min-h-[385px] lg:min-h-[300px]">
+            <div className="h-[88dvh] overflow-hidden rounded-[4px] border border-[#e7e7e7] shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:col-span-2 sm:h-auto sm:min-h-[400px] lg:min-h-[320px]">
               <MissionBox className="h-full w-full" />
             </div>
 
             {/* Bottom-leftMain Photos carousel (moved from top-right) */}
             <div
-              className="h-[100dvh] overflow-hidden rounded-none sm:h-[375px] lg:min-h-[405px]"
+              className="h-[100dvh] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
               aria-label="Featured Photos"
             >
               <PhotoCarousel
@@ -149,7 +154,7 @@ export default function Home() {
 
             {/* Bottom-right: Student Testimonies */}
             <div
-              className="h-[100dvh] overflow-hidden rounded-none sm:h-[375px] lg:min-h-[405px]"
+              className="h-[100dvh] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
               aria-label="Student Testimonies"
             >
               <PhotoCarousel

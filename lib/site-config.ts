@@ -49,12 +49,12 @@ export const siteConfig = {
     {
       label: "Help Us Grow",
       items: [
-        { href: "/events", label: "Donate" },
-        { href: "/events", label: "Sponsor an Existing Program" },
-        { href: "/events", label: "Fund an Event in Your Community" },
-        { href: "/events", label: "Become a Member" },
-        { href: "/events", label: "Join the Michigan Civics Corps" },
-        { href: "/events", label: "Mentorship Opportunities" },
+        { href: "/help-us-grow", label: "Donate" },
+        { href: "/help-us-grow", label: "Sponsor an Existing Program" },
+        { href: "/help-us-grow", label: "Fund an Event in Your Community" },
+        { href: "/help-us-grow", label: "Become a Member" },
+        { href: "/help-us-grow", label: "Join the Michigan Civics Corps" },
+        { href: "/help-us-grow", label: "Mentorship Opportunities" },
       ],
     },
     {

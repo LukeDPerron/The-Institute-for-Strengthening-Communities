@@ -30,23 +30,31 @@ export const aboutImageSources: AboutImageSources = {
 };
 
 export const boardMembers: TeamMember[] = [
-  {
-    name: "David A. Bloom, M.D.",
-    role: "Board Chair",
-    bio: "",
-    imageSrc: "/images/about/mrBloom.png",
-  },
-  {
+    {
     name: "Amy B. Bloom",
     role: "President & Director",
     bio: "Amy B. Bloom, JD is a lawyer and civic education leader with over 30 years in K-12 education, including lecturing at the graduate education level. Currently, she serves as Research Scholar in Deliberative Democracy at the Center for the Study of Citizenship at Wayne State University. Amy’s focus is on educating for democracy through the nexus of literacy, civic and history education, and social-emotional learning. She served as the K-12 social studies and history consultant for Oakland Schools from 2001-2018. She brings a wealth of experience including work with the Kettering Foundation, the Shoah Foundation at the University of Southern California, state and federal judicial systems in Michigan and Massachusetts, the United States Senate, Detroit Future City, Detroit Public Schools, Detroit Police Department, Wayne State University School of Medicine, and the National Issues Forum Institute. ",
     imageSrc: "/images/boardAndStaff/AmyBloom.png",
   },
   {
-    name: "David Deutsch",
-    role: "Board Member",
+    name: "David A. Bloom, M.D.",
+    role: "Board Chair",
     bio: "",
-    imageSrc: "/images/boardAndStaff/DavidDeutsch.jpg",
+    imageSrc: "/images/about/mrBloom.png",
+  },
+
+      {
+    name: "Michael Steinback",
+    role: "Director",
+    bio: "Michael Steinback, a founding member of Oakland Bay Area CARES, has been with Detroit CARES since 2013 serving as executive director, program administrator, mentor, trainer, and coach. His work with CARES earned him the distinguished Men of Excellence in 2017 by the Michigan Chronicle. Michael currently serves as the Director of Enterprise Risk Management for the historic Julian C. Madison Building, LLC, in downtown Detroit. His business career includes risk management, small business consulting, commercial bank lending and community development. Michael has also been active in moderating and facilitating deliberative dialogue discourse, conducting wellness training around the US and in Kenya, while serving on youth and mental health focused organization boards.",
+    imageSrc: "/images/boardAndStaff/michael-steinback-headshot.jpg",
+  },
+
+      {
+    name: "Julie McDaniel-Muldoon",
+    role: "Secretary & Director",
+    bio: "Julie McDaniel-Muldoon, PhD, ACTP is a career public educator with over 40 years in K-12 education. She is a certified trainer for Bully-Free Schools, a program supported by the Michigan Department of Education, and since 2018 has served as the Social Media Content Coordinator for the International Bullying Prevention Association. Julie is a graduate certified restorative practitioner and trainer for the International Institute for Restorative Practices and is an Advanced Certified Trauma Practitioner and trainer for Starr Commonwealth. She recently retired from her position as a Safety and Well-Being Consultant at Oakland Schools, a regional educational service agency in Michigan. Julie remains committed to and passionate about creating safe and supportive learning environments that fully engage and empower all students and the adults who serve them.",
+    imageSrc: "/images/boardAndStaff/JEMMuldoon_Headshot.jpg",
   },
   {
     name: "Kelly Carey",
@@ -54,6 +62,13 @@ export const boardMembers: TeamMember[] = [
     bio: "Kelly Carey, MBA is a Curriculum Production Consultant for Oakland Schools, a regional educational service agency in Michigan, and has over 30 years experience in public education. She is a trainer through the International Institute for Restorative Practices and regularly provides restorative practices training at the county and local district level. Kelly is currently adapting the social-emotional curriculum units from the Michigan Model for Health into restorative sessions at the middle and high school levels. She has worked with a variety of Detroit-based non-profit organizations as lead facilitator and currently facilitates conversations for several communities under a grant from the Michigan Health Endowment Fund. Kelly believes that a community-focused approach is essential to any successful endeavor.",
     imageSrc: "/images/boardAndStaff/KellyCarey.jpg",
   },
+  {
+    name: "David Deutsch",
+    role: "Board Member",
+    bio: "",
+    imageSrc: "/images/boardAndStaff/DavidDeutsch.jpg",
+  },
+
 
         {
     name: "Sierra Pilarski",
@@ -61,27 +76,6 @@ export const boardMembers: TeamMember[] = [
     bio: "",
     imageSrc: "/images/boardAndStaff/Pilarski.png",
   },
-    {
-    name: "Michael Steinback",
-    role: "Director",
-    bio: "Michael Steinback, a founding member of Oakland Bay Area CARES, has been with Detroit CARES since 2013 serving as executive director, program administrator, mentor, trainer, and coach. His work with CARES earned him the distinguished Men of Excellence in 2017 by the Michigan Chronicle. Michael currently serves as the Director of Enterprise Risk Management for the historic Julian C. Madison Building, LLC, in downtown Detroit. His business career includes risk management, small business consulting, commercial bank lending and community development. Michael has also been active in moderating and facilitating deliberative dialogue discourse, conducting wellness training around the US and in Kenya, while serving on youth and mental health focused organization boards.",
-    imageSrc: "/images/boardAndStaff/michael-steinback-headshot.jpg",
-  },
-
-    {
-    name: "Julie McDaniel-Muldoon",
-    role: "Secretary & Director",
-    bio: "Julie McDaniel-Muldoon, PhD, ACTP is a career public educator with over 40 years in K-12 education. She is a certified trainer for Bully-Free Schools, a program supported by the Michigan Department of Education, and since 2018 has served as the Social Media Content Coordinator for the International Bullying Prevention Association. Julie is a graduate certified restorative practitioner and trainer for the International Institute for Restorative Practices and is an Advanced Certified Trauma Practitioner and trainer for Starr Commonwealth. She recently retired from her position as a Safety and Well-Being Consultant at Oakland Schools, a regional educational service agency in Michigan. Julie remains committed to and passionate about creating safe and supportive learning environments that fully engage and empower all students and the adults who serve them.",
-    imageSrc: "/images/boardAndStaff/JEMMuldoon_Headshot.jpg",
-  },
-
-    {
-    name: "Hailey",
-    role: "Therapy Dog",
-    bio: "",
-    imageSrc: "/images/about/Hailey_headshot.jpg",
-  },
-
 
 ];
 

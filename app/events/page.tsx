@@ -1,3 +1,5 @@
+import { UnderConstructionPage } from "@/components/layout/under-construction-page";
+
 export default function EventsPage() {
-  return null;
+  return <UnderConstructionPage alt="Events page under construction" />;
 }

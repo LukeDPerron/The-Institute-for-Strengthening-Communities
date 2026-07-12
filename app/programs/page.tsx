@@ -1,3 +1,5 @@
+import { UnderConstructionPage } from "@/components/layout/under-construction-page";
+
 export default function ProgramsPage() {
-  return null;
+  return <UnderConstructionPage alt="Programs page under construction" />;
 }

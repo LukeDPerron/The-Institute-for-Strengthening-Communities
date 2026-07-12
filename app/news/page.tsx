@@ -1,3 +1,5 @@
+import { UnderConstructionPage } from "@/components/layout/under-construction-page";
+
 export default function NewsPage() {
-  return null;
+  return <UnderConstructionPage alt="In the News page under construction" />;
 }

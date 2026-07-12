@@ -19,6 +19,18 @@ export function Navbar() {
   const [clickedNavItem, setClickedNavItem] = useState<string | null>(null);
   const pathname = usePathname();
 
+  const handleTopLevelNavClick = (
+    label: string,
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    setClickedNavItem(label);
+
+    // Prevent focus-within styles from keeping the dropdown visible after click navigation.
+    if (event.detail > 0) {
+      event.currentTarget.blur();
+    }
+  };
+
   const hasBanner = BANNER_PAGES.includes(pathname);
   const isWhite = !hasBanner;
 
@@ -53,7 +65,7 @@ export function Navbar() {
         <Link
           href="/"
           aria-label={siteConfig.name}
-          className="inline-flex shrink-0 items-center"
+          className="inline-flex shrink-0 items-center lg:-ml-28"
         >
           <Image
             src="/Transparent_Logo.png"
@@ -72,13 +84,13 @@ export function Navbar() {
               const active = clickedNavItem === item.label;
               const groupHref = item.items[0]?.href.split("#")[0] ?? "/";
               return (
-              <li key={item.label} className="group relative">
+              <li key={item.label} className="group relative pt-1">
                 <Link
                   href={groupHref}
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
                   aria-current={active ? "page" : undefined}
-                  onClick={() => setClickedNavItem(item.label)}
+                  onClick={(event) => handleTopLevelNavClick(item.label, event)}
                   className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
                     active ? "underline underline-offset-4" : ""
                   } ${
@@ -92,7 +104,7 @@ export function Navbar() {
 
                 <ul
                   role="menu"
-                  className="invisible absolute left-0 top-full z-20 mt-1 min-w-44 space-y-1 rounded-md border border-slate-200 bg-white p-2 opacity-0 shadow-md transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                  className="invisible absolute left-0 top-full z-20 min-w-44 space-y-1 rounded-md border border-slate-200 bg-white p-2 opacity-0 shadow-md transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
                 >
                   {item.items.map((dropdownItem) => (
                     <li key={`${item.label}-${dropdownItem.label}`} role="none">
