@@ -17,24 +17,23 @@ export const siteConfig = {
       label: "About",
       items: [
         { href: "/about#mission", label: "Mission Statement" },
-        { href: "/about#board-of-directors", label: "Board of Directors" },
-        { href: "/about#staff", label: "Staff" },
+        { href: "/about#board-of-directors", label: "Our Team" },
         { href: "/about#story", label: "Our Story" },
       ],
     },
     {
-      label: "In The News",
+      label: "In the News",
       items: [
-        { href: "/research", label: "Message from the President" },
-        { href: "/research", label: "Did You Know?" },
-        { href: "/research", label: "Media" },
+        { href: "/news", label: "Message from the President" },
+        { href: "/news", label: "Did You Know?" },
+        { href: "/news", label: "Media" },
       ],
     },
     {
       label: "Events",
       items: [
-        { href: "/research", label: "Past Events" },
-        { href: "/research", label: "Upcoming Events" },
+        { href: "/events", label: "Past Events" },
+        { href: "/events", label: "Upcoming Events" },
       ],
     },
     {
@@ -48,7 +47,7 @@ export const siteConfig = {
       ],
     },
     {
-      label: "Help us Grow",
+      label: "Help Us Grow",
       items: [
         { href: "/events", label: "Donate" },
         { href: "/events", label: "Sponsor an Existing Program" },

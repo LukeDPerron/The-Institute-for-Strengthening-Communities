@@ -1,77 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-
-const aboutImageSources = {
-  // ── BANNER IMAGE ─────────────────────────────────────────────────────────
-  // Replace this path with your final full-width banner asset.
-  // File location: /public/images/about/hero-placeholder.svg
-  // Swap the value below, e.g. "/images/about/banner.jpg"
-  // ─────────────────────────────────────────────────────────────────────────
-  hero: "/images/about/header.jpg",
-  mission: "/images/about/mission.png",
-  story: "/images/about/Our-Story.png",
-};
-
-type TeamMember = {
-  name: string;
-  role: string;
-  bio: string;
-  imageSrc: string;
-};
-
-const boardMembers: TeamMember[] = [
-  {
-    name: "Name Surname",
-    role: "Title",
-    bio: "Leads strategic partnerships and helps align programs with community priorities.",
-    imageSrc: "/images/about/femaleplace.jpg",
-  },
-  {
-    name: "Name Surname",
-    role: "Title",
-    bio: "Supports sustainable growth and transparent stewardship for every donor dollar.",
-    imageSrc: "/images/about/femaleplace.jpg",
-  },
-  {
-    name: "Name Surname",
-    role: "Title",
-    bio: "Champions neighborhood listening sessions and volunteer engagement.",
-    imageSrc: "/images/about/femaleplace.jpg",
-  },
-  {
-    name: "Name Surname",
-    role: "Title",
-    bio: "Brings experience in youth programming and cross-sector collaboration.",
-    imageSrc: "/images/about/femaleplace.jpg",
-  },
-];
-
-const staffMembers: TeamMember[] = [
-  {
-    name: "Hailey",
-    role: "Therapy Dog",
-    bio: "Guides mission delivery and long-term impact planning across all programs.",
-    imageSrc: "/images/about/Hailey_headshot.jpg",
-  },
-  {
-    name: "Name Surname",
-    role: "Title",
-    bio: "Coordinates community workshops, events, and outcomes reporting.",
-    imageSrc: "/images/about/Maleplace.png",
-  },
-  {
-    name: "Name Surname",
-    role: "Title",
-    bio: "Connects volunteers to meaningful projects that strengthen neighborhoods.",
-    imageSrc: "/images/about/Maleplace.png",
-  },
-  {
-    name: "Name Surname",
-    role: "Title",
-    bio: "Builds donor relationships and supports fundraising campaigns.",
-    imageSrc: "/images/about/Maleplace.png",
-  },
-];
+import {
+  aboutImageSources,
+  aboutStorySections,
+  boardMembers,
+  staffMembers,
+  type TeamMember,
+  type StorySectionContent,
+} from "@/lib/cms/about-content";
 
 function PersonCard({
   name,
@@ -90,7 +26,7 @@ function PersonCard({
           alt={`Headshot of ${name}`}
           fill
           sizes="(max-width: 640px) 100vw, 25vw"
-          className="object-cover"
+          className={name === "David A. Bloom, M.D." ? "object-cover object-top" : "object-cover"}
         />
       </div>
       <div className="text-center">
@@ -127,24 +63,37 @@ function TeamSection({
 function StorySection({
   id,
   title,
-  description,
+  paragraphs,
   imageSrc,
   imageAlt,
   reverse,
   justifyDescription,
   showSeeMore,
   seeMoreHref,
-}: {
-  id: string;
-  title: string;
-  description: string;
-  imageSrc: string;
-  imageAlt: string;
-  reverse?: boolean;
-  justifyDescription?: boolean;
-  showSeeMore?: boolean;
-  seeMoreHref?: string;
-}) {
+}: StorySectionContent) {
+  const linkifyParagraph = (paragraph: string) => {
+    const urlPattern = /(https?:\/\/[^\s]+)/g;
+    const parts = paragraph.split(urlPattern);
+
+    return parts.map((part, index) => {
+      if (urlPattern.test(part)) {
+        return (
+          <a
+            key={`${id}-link-${index}`}
+            href={part}
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold text-orange-700 underline-offset-2 hover:underline"
+          >
+            {part}
+          </a>
+        );
+      }
+
+      return <span key={`${id}-text-${index}`}>{part}</span>;
+    });
+  };
+
   return (
     <section id={id} className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <div
@@ -162,27 +111,36 @@ function StorySection({
           />
         </div>
         <div>
-          <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">
-            {title}
-          </h2>
-          <p
-            className={`mt-4 text-base leading-7 text-slate-700 ${
-              justifyDescription ? "text-justify" : ""
+          <h2
+            className={`text-center font-bold tracking-tight text-slate-900 ${
+              id === "mission" ? "text-3xl sm:text-4xl" : "text-3xl"
             }`}
           >
-            {description}
-            {showSeeMore ? (
-              <>
-                {" "}
-                <Link
-                  href={seeMoreHref ?? "/about#story"}
-                  className="font-semibold text-orange-700 underline-offset-2 hover:underline"
-                >
-                  See more{">"}
-                </Link>
-              </>
-            ) : null}
-          </p>
+            {title}
+          </h2>
+          <div className="mt-4 space-y-5">
+            {paragraphs.map((paragraph, index) => (
+              <p
+                key={`${id}-paragraph-${index}`}
+                className={`text-base leading-7 text-slate-700 ${
+                  justifyDescription ? "text-justify" : ""
+                } ${index === 0 && id === "story" ? "font-bold text-center" : ""}`}
+              >
+                {linkifyParagraph(paragraph)}
+                {showSeeMore && index === paragraphs.length - 1 ? (
+                  <>
+                    {" "}
+                    <Link
+                      href={seeMoreHref ?? "/about#story"}
+                      className="font-semibold text-orange-700 underline-offset-2 hover:underline"
+                    >
+                      See more{">"}
+                    </Link>
+                  </>
+                ) : null}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -193,7 +151,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Full-width banner below the fixed navbar */}
-      <div className="relative w-full h-80 overflow-hidden sm:h-[28rem] lg:h-[36rem]">
+      <div className="relative w-full h-72 overflow-hidden sm:h-[24rem] lg:h-[32rem]">
           <Image
             src={aboutImageSources.hero}
             alt="About page banner"
@@ -206,20 +164,13 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
-      <StorySection
-        id="mission"
-        title="Mission Statement"
-        description="The organization’s mission is to educate individuals, communities, and local leaders in democratic and restorative principles that strengthen trust, civic engagement, and collaboration. Through workshops, trainings, community dialogues, and educational resources, the organization promotes civic responsibility, restorative practices, collective problem-solving, and constructive participation in community improvement efforts. Its work focuses on fostering healing, accountability, shared decision-making, and stronger community relationships through nonpartisan education and collaborative action."
-        imageSrc={aboutImageSources.mission}
-        imageAlt="Placeholder image for mission-driven community work"
-        justifyDescription
-      />
+      <StorySection {...aboutStorySections[0]} />
 
 
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">
-          Board of Directors &amp; Staff
+        <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          Our Team
         </h2>
         <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-8">
           <TeamSection
@@ -233,16 +184,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <StorySection
-        id="story"
-        title="Our Story"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        imageSrc={aboutImageSources.story}
-        imageAlt="Placeholder image representing the organization story"
-        justifyDescription
-        showSeeMore
-        reverse
-      />
+      <StorySection {...aboutStorySections[1]} />
 
     </>
     

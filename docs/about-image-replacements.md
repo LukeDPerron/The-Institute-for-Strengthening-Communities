@@ -51,3 +51,4 @@ All current placeholder image assets are local SVG files in:
 - No component logic changes are needed once files are added.
 
 No hardcoded remote images are used on the About page at this time.
+

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 
@@ -16,14 +16,26 @@ const BANNER_PAGES = ["/about"];
 // The top-level nav button for the current page's group is underlined.
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [clickedNavItem, setClickedNavItem] = useState<string | null>(null);
   const pathname = usePathname();
 
   const hasBanner = BANNER_PAGES.includes(pathname);
   const isWhite = !hasBanner;
 
-  // A nav group is "active" when the current pathname matches any of its dropdown hrefs.
-  const isGroupActive = (item: (typeof siteConfig.navItems)[number]) =>
-    item.items.some((d) => d.href.split("#")[0] === pathname);
+  // Update underline when pathname changes (e.g., via clicking links on the page)
+  useEffect(() => {
+    if (pathname === "/") {
+      // No nav group is active on the homepage
+      setClickedNavItem(null);
+    } else {
+      const activeItem = siteConfig.navItems.find((item) =>
+        item.items.some((dropdownItem) => dropdownItem.href.split("#")[0] === pathname)
+      );
+      if (activeItem) {
+        setClickedNavItem(activeItem.label);
+      }
+    }
+  }, [pathname]);
 
   return (
     <header
@@ -35,7 +47,7 @@ export function Navbar() {
     >
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8"
       >
         {/* Logo / branding — always on the left */}
         <Link
@@ -44,12 +56,12 @@ export function Navbar() {
           className="inline-flex shrink-0 items-center"
         >
           <Image
-            src="/transparent_Logo.png"
+            src="/Transparent_Logo.png"
             alt={`${siteConfig.name} logo`}
             width={619}
             height={70}
             priority
-            className="h-auto w-48 sm:w-56 lg:w-80"
+            className="h-auto w-36 sm:w-44 lg:w-72"
           />
         </Link>
 
@@ -57,7 +69,7 @@ export function Navbar() {
         <div className="hidden items-center gap-6 md:flex">
           <ul className="flex items-center gap-5" role="list">
             {siteConfig.navItems.map((item) => {
-              const active = isGroupActive(item);
+              const active = clickedNavItem === item.label;
               const groupHref = item.items[0]?.href.split("#")[0] ?? "/";
               return (
               <li key={item.label} className="group relative">
@@ -66,6 +78,7 @@ export function Navbar() {
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
                   aria-current={active ? "page" : undefined}
+                  onClick={() => setClickedNavItem(item.label)}
                   className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
                     active ? "underline underline-offset-4" : ""
                   } ${
@@ -86,6 +99,7 @@ export function Navbar() {
                       <Link
                         href={dropdownItem.href}
                         role="menuitem"
+                        onClick={() => setClickedNavItem(item.label)}
                         className="block rounded-md px-3 py-1.5 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
                       >
                         {dropdownItem.label}
@@ -140,7 +154,7 @@ export function Navbar() {
               </Link>
             </li>
             {siteConfig.navItems.map((item) => {
-              const active = isGroupActive(item);
+              const active = clickedNavItem === item.label;
               return (
               <li key={item.label}>
                 <details>
@@ -155,7 +169,10 @@ export function Navbar() {
                         <Link
                           href={dropdownItem.href}
                           className="block rounded-md px-2 py-2 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700"
-                          onClick={() => setIsOpen(false)}
+                          onClick={() => {
+                            setClickedNavItem(item.label);
+                            setIsOpen(false);
+                          }}
                         >
                           {dropdownItem.label}
                         </Link>

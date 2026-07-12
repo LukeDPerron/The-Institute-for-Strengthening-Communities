@@ -26,133 +26,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { PhotoCarousel, type CarouselSlide } from "@/components/home/PhotoCarousel";
-
-// ── 1. BOARD MEMBERS ─────────────────────────────────────────────────────────
-// Replace each entry with the real name, title, and photo path.
-// Recommended image size: 200×200 px square, stored in /public/images/home/
-type BoardMember = {
-  name: string;
-  title: string;
-  imageSrc: string;
-};
-
-const boardMembers: BoardMember[] = [
-  {
-    name: "Name Surname",
-    title: "Board Chair",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
-  },
-  {
-    name: "Name Surname",
-    title: "Vice Chair",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
-  },
-  {
-    name: "Name Surname",
-    title: "Treasurer",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
-  },
-  {
-    name: "Name Surname",
-    title: "Secretary",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
-  },
-  {
-    name: "Name Surname",
-    title: "Director",
-    imageSrc: "/images/about/board-headshot-placeholder.svg",
-  },
-];
-
-// ── 2 & 3. MISSION QUOTE + MISSION BACKGROUND IMAGE ──────────────────────────
-// ── 4. MAIN (FEATURED) PHOTOS ─────────────────────────────────────────────────
-// ── 5. PROGRAMS / EVENTS ──────────────────────────────────────────────────────
-// ── 6. TESTIMONIES ────────────────────────────────────────────────────────────
-const homepageContent = {
-  // 2. Replace this quote with the real mission statement excerpt.
-  missionQuote:
-    "Quote from mission statement",
-
-  // 3. Replace with the real mission-box background image path.
-  missionBg: "/images/about/Mission.png",
-
-  // 4. Replace each object's image/caption/title with real featured photos.
-  mainPhotos: [
-    {
-      image: "/images/about/Header.jpg",
-      title: "Main Photos",
-      caption: "Filler text",
-    },
-    {
-      image: "/images/about/header1.png",
-      title: "Main tavci",
-      caption: "Filler text 2",
-    },
-    {
-      image: "/images/about/Our-Story.png",
-      title: "Main Photos",
-      caption: "Filler text 3",
-    },
-  ] satisfies CarouselSlide[],
-
-  // 5. Replace each object's image/caption/title with real program or event photos.
-  programPhotos: [
-    {
-      image: "/images/about/header1.png",
-      title: "Programs & Events",
-      caption: "Filler text 4",
-    },
-    {
-      image: "/images/about/Our-Story.png",
-      title: "Programs & Events",
-      caption: "Filler text 5",
-    },
-    {
-      image: "/images/about/Header.jpg",
-      title: "Programs & Events",
-      caption: "Filler text 6",
-    },
-  ] satisfies CarouselSlide[],
-
-  // 6. Replace each object with a real student photo, testimony text, and optional title.
-  testimonies: [
-    {
-      image: "/images/about/femaleplace.jpg",
-      title: "Student Testimonies",
-      caption:
-        'Filler text 7',
-    },
-    {
-      image: "/images/about/Maleplace.png",
-      title: "Student Testimonies",
-      caption:
-        'Filler text 8',
-    },
-    {
-      image: "/images/about/Hailey_headshot.jpg",
-      title: "Student Testimonies",
-      caption:
-        'Filler text 9',
-    },
-  ] satisfies CarouselSlide[],
-};
+import { PhotoCarousel } from "@/components/home/PhotoCarousel";
+import { boardMembers, homepageContent, type TeamMember } from "@/lib/cms/homepage-content";
 
 // ── LOCAL COMPONENTS ──────────────────────────────────────────────────────────
 
 /** Small card displayed in the Board of Directors sidebar. */
-function BoardMemberCard({ name, title, imageSrc }: BoardMember) {
+function BoardMemberCard({ name, title, imageSrc }: TeamMember) {
   return (
-    <article className="flex flex-col items-center text-center">
+    <article className="flex w-28 shrink-0 flex-col items-center text-center lg:w-auto lg:shrink">
       <div className="relative h-20 w-20 overflow-hidden rounded-none bg-slate-100 ring-1 ring-slate-200">
         <Image
           src={imageSrc}
           alt={`Headshot of ${name}`}
           fill
+          sizes="80px"
           className="object-cover"
         />
       </div>
-      <p className="mt-2 text-sm font-semibold text-slate-900 leading-tight">{name}</p>
+      <p className="mt-2 text-sm font-semibold text-slate-900 leading-tight">
+        <Link
+          href="/board-of-directors"
+          className="transition-colors hover:text-orange-700 hover:underline"
+        >
+          {name}
+        </Link>
+      </p>
       <p className="text-xs text-slate-500 leading-tight">{title}</p>
     </article>
   );
@@ -167,27 +66,30 @@ function MissionBox({ className = "" }: { className?: string }) {
         src={homepageContent.missionBg}
         alt="Mission background"
         fill
+        sizes="(max-width: 640px) 100vw, (max-width:1024px) 38vw, 35vw"
         className="object-cover opacity-60"
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/45 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 py-10 text-center">
-        {/* Decorative quotation mark */}
-        <span className="mb-3 text-5xl font-serif leading-none text-orange-400 select-none" aria-hidden="true">
-          &ldquo;
-        </span>
-        <blockquote>
-          <p className="text-base font-medium leading-relaxed text-white drop-shadow sm:text-lg">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-7 py-12 text-center">
+        <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.16em] text-white sm:text-3xl">
+          Stronger Communities. 
+        </p>
+        <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.16em] text-orange-500 sm:text-3xl">
+        Better Futures.
+        </p>
+        <blockquote className="mx-auto w-[75%]">
+          <p className="text-lg font-medium leading-relaxed text-white drop-shadow sm:text-xl lg:text-2xl">
             {homepageContent.missionQuote}
           </p>
         </blockquote>
         <Link
           href="/about"
-          className="mt-8 inline-flex items-center justify-center rounded-md bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+          className="mt-9 inline-flex items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-xl font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
         >
-          Our Mission.
+          Our Mission
         </Link>
       </div>
     </div>
@@ -207,13 +109,13 @@ export default function Home() {
           {/* ── LEFT SIDEBAR: Board of Directors ── */}
           <aside
             aria-label="Board of Directors"
-            className="w-full"
+            className="order-last w-full lg:order-none"
           >
           <div className="h-full rounded-none border border-slate-200 bg-white p-4">
               <h2 className="mb-5 text-center text-base font-bold uppercase tracking-widest text-slate-700">
                 Board of Directors
               </h2>
-              <div className="space-y-6">
+              <div className="flex gap-4 overflow-x-auto pb-2 lg:block lg:space-y-6 lg:overflow-visible lg:pb-0">
                 {boardMembers.map((member) => (
                   <BoardMemberCard key={`${member.name}-${member.title}`} {...member} />
                 ))}
@@ -221,53 +123,42 @@ export default function Home() {
             </div>
           </aside>
 
-          {/* ── MAIN 2×2 CONTENT GRID ── */}
-          <div className="min-w-0">
+          {/*MAIN CONTENT GRID*/}
+          <div className="order-first min-w-0 grid grid-cols-1 gap-px sm:grid-cols-2 lg:order-none">
 
-            {/* ── TOP ROW: Mission box + Featured photo carousel ── */}
-            <div className="grid grid-cols-1 gap-px sm:grid-cols-[2fr_3.25fr]">
-
-              {/* Top-left: Mission statement */}
-              <div className="h-[400px] sm:h-auto sm:min-h-[425px] lg:min-h-[475px]">
-                <MissionBox className="h-full w-full" />
-              </div>
-
-              {/* Top-right: Featured / Main Photos carousel */}
-              <div
-                className="h-[400px] overflow-hidden rounded-none sm:h-auto sm:min-h-[425px] lg:min-h-[475px]"
-                aria-label="Featured Photos"
-              >
-                <PhotoCarousel
-                  slides={homepageContent.mainPhotos}
-                  className="h-full w-full"
-                />
-              </div>
+            {/* Top box: Mission statement */}
+            <div className="h-[88dvh] sm:col-span-2 sm:h-auto sm:min-h-[385px] lg:min-h-[300px]">
+              <MissionBox className="h-full w-full" />
             </div>
 
-            {/* ── BOTTOM ROW: Programs/Events + Testimonies ── */}
-            <div className="mt-px grid grid-cols-1 gap-px sm:grid-cols-2">
+            {/* Bottom-leftMain Photos carousel (moved from top-right) */}
+            <div
+              className="h-[100dvh] overflow-hidden rounded-none sm:h-[375px] lg:min-h-[405px]"
+              aria-label="Featured Photos"
+            >
+              <PhotoCarousel
+                slides={homepageContent.mainPhotos}
+                className="h-full w-full"
+                sectionLabel="Our Programs in Action"
+                captionClassName="sm:text-base lg:text-lg"
+                imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 62vw, 50vw"
+                eager
+                autoPlay
+              />
+            </div>
 
-              {/* Bottom-left: Programs / Events */}
-              <div
-                className="h-[375px] overflow-hidden rounded-none lg:min-h-[405px]"
-                aria-label="Programs and Events"
-              >
-                <PhotoCarousel
-                  slides={homepageContent.programPhotos}
-                  className="h-full w-full"
-                />
-              </div>
-
-              {/* Bottom-right: Student Testimonies */}
-              <div
-                className="h-[375px] overflow-hidden rounded-none lg:min-h-[405px]"
-                aria-label="Student Testimonies"
-              >
-                <PhotoCarousel
-                  slides={homepageContent.testimonies}
-                  className="h-full w-full"
-                />
-              </div>
+            {/* Bottom-right: Student Testimonies */}
+            <div
+              className="h-[100dvh] overflow-hidden rounded-none sm:h-[375px] lg:min-h-[405px]"
+              aria-label="Student Testimonies"
+            >
+              <PhotoCarousel
+                slides={homepageContent.testimonies}
+                className="h-full w-full"
+                sectionLabel=""
+                showDarkOverlay={false}
+                imageSizes="(max-width: 640px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>

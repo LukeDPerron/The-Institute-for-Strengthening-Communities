@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Nonprofit Bloom",
-  description: "Starter template for a modern nonprofit or institute website.",
+  description: "",
 };
 
 export default function RootLayout({

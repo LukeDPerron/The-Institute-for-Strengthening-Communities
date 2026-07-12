@@ -21,17 +21,20 @@ export function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-900">
             Quick links
           </h3>
-          <ul className="mt-3 space-y-2">
-            {siteConfig.footerLinks.map((link) => (
-              <li key={link.href}>
+          <ul className="mt-3 grid w-fit grid-cols-[max-content_max-content] gap-x-6 gap-y-2">
+            {siteConfig.navItems.map((item) => {
+              const groupHref = item.items[0]?.href.split("#")[0] ?? "/";
+              return (
+              <li key={item.label}>
                 <Link
-                  href={link.href}
+                  href={groupHref}
                   className="text-sm text-slate-600 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
                 >
-                  {link.label}
+                  {item.label}
                 </Link>
               </li>
-            ))}
+              );
+            })}
           </ul>
         </section>
 
