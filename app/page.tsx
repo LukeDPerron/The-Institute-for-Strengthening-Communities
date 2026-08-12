@@ -49,15 +49,15 @@ function BoardMemberCard({ name, role, imageSrc }: TeamMember) {
           className="object-cover"
         />
       </div>
-      <p className="mt-2 text-sm font-semibold text-slate-900 leading-tight">
+      <p className="mt-2 text-sm font-semibold text-slate-900 leading-tight break-words">
         <Link
           href={`/board-of-directors#${getMemberAnchor(name)}`}
-          className="transition-colors hover:text-orange-700 hover:underline"
+          className="transition-colors hover:text-orange-700 hover:underline break-words"
         >
           {name}
         </Link>
       </p>
-      <p className="text-xs text-slate-500 leading-tight">{role}</p>
+      <p className="text-xs text-slate-500 leading-tight break-words">{role}</p>
     </article>
   );
 }
@@ -78,21 +78,21 @@ function MissionBox({ className = "" }: { className?: string }) {
       <div className="absolute inset-0 bg-black/45 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-8 py-12 text-center sm:px-12">
-        <p className="mb-4 text-3xl font-extrabold uppercase tracking-[0.14em] text-white sm:text-4xl">
+      <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 py-8 text-center sm:px-12 sm:py-12">
+        <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.08em] text-white sm:mb-4 sm:text-4xl sm:tracking-[0.14em]">
           Stronger Communities. 
         </p>
-        <p className="mb-6 text-3xl font-extrabold uppercase tracking-[0.14em] text-orange-500 sm:text-4xl">
+        <p className="mb-5 text-2xl font-extrabold uppercase tracking-[0.08em] text-orange-500 sm:mb-6 sm:text-4xl sm:tracking-[0.14em]">
         Better Futures.
         </p>
-        <blockquote className="mx-auto w-[75%]">
-          <p className="text-lg font-medium leading-relaxed text-white drop-shadow sm:text-xl lg:text-2xl">
+        <blockquote className="mx-auto w-[92%] sm:w-[75%]">
+          <p className="text-base font-medium leading-relaxed text-white drop-shadow sm:text-xl lg:text-2xl">
             {homepageContent.missionQuote}
           </p>
         </blockquote>
         <Link
           href="/about"
-          className="mt-8 inline-flex items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-xl font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-lg font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 sm:mt-8 sm:text-xl"
         >
           Our Mission
         </Link>
@@ -117,7 +117,7 @@ export default function Home() {
             className="order-last w-full lg:order-none"
           >
           <div className="rounded-[4px] border border-[#e7e7e7] bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] lg:max-h-[760px] lg:overflow-y-auto lg:p-3 xl:max-h-[800px] 2xl:max-h-[860px]">
-              <h2 className="mb-5 text-center text-base font-bold uppercase tracking-widest text-slate-700 lg:mb-4">
+              <h2 className="mb-5 text-center text-base font-bold uppercase tracking-[0.08em] text-slate-700 sm:tracking-widest lg:mb-4">
                 Board of Directors
               </h2>
               <div className="flex gap-3 overflow-x-auto pb-2 lg:block lg:space-y-3 lg:overflow-visible lg:pb-0">
@@ -129,16 +129,16 @@ export default function Home() {
           </aside>
 
           {/*MAIN CONTENT GRID*/}
-          <div className="order-first min-w-0 self-start grid grid-cols-1 gap-3 sm:grid-cols-2 lg:order-none">
+          <div className="order-first min-w-0 self-start grid grid-cols-1 gap-3 md:grid-cols-2 lg:order-none">
 
             {/* Top box: Mission statement */}
-            <div className="h-[88dvh] overflow-hidden rounded-[4px] border border-[#e7e7e7] shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:col-span-2 sm:h-auto sm:min-h-[400px] lg:min-h-[320px]">
+            <div className="min-h-[360px] overflow-hidden rounded-[4px] border border-[#e7e7e7] shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:col-span-2 md:min-h-[400px] lg:min-h-[320px]">
               <MissionBox className="h-full w-full" />
             </div>
 
             {/* Bottom-leftMain Photos carousel (moved from top-right) */}
             <div
-              className="h-[100dvh] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
+              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
               aria-label="Featured Photos"
             >
               <PhotoCarousel
@@ -154,13 +154,13 @@ export default function Home() {
 
             {/* Bottom-right: Student Testimonies */}
             <div
-              className="h-[100dvh] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] sm:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
+              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
               aria-label="Student Testimonies"
             >
               <PhotoCarousel
                 slides={homepageContent.testimonies}
                 className="h-full w-full"
-                sectionLabel=""
+                sectionLabel="Evidence of Impact"
                 showDarkOverlay={false}
                 imageSizes="(max-width: 640px) 100vw, 50vw"
               />

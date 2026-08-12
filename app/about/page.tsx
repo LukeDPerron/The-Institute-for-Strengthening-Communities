@@ -52,8 +52,10 @@ function TeamSection({
 
   return (
     <section id={id}>
-      <h3 className="text-2xl font-semibold tracking-tight text-slate-900">{title}</h3>
-      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {id !== "board-of-directors" ? (
+        <h3 className="text-2xl font-semibold tracking-tight text-slate-900">{title}</h3>
+      ) : null}
+      <div className={`${id !== "board-of-directors" ? "mt-6 " : ""}grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}>
         {members.map((member, index) => (
           <PersonCard
             key={`${id}-${index}`}
@@ -79,26 +81,75 @@ function StorySection({
   seeMoreHref,
 }: StorySectionContent) {
   const linkifyParagraph = (paragraph: string) => {
+    const markdownLinkPattern = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
     const urlPattern = /(https?:\/\/[^\s]+)/g;
-    const parts = paragraph.split(urlPattern);
+    const segments: React.ReactNode[] = [];
+    let lastIndex = 0;
 
-    return parts.map((part, index) => {
-      if (urlPattern.test(part)) {
-        return (
-          <a
-            key={`${id}-link-${index}`}
-            href={part}
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-orange-700 underline-offset-2 hover:underline"
-          >
-            {part}
-          </a>
-        );
+    paragraph.replace(markdownLinkPattern, (match, label, href, offset) => {
+      if (offset > lastIndex) {
+        const text = paragraph.slice(lastIndex, offset);
+        const textSegments = text.split(urlPattern);
+
+        textSegments.forEach((part, index) => {
+          if (urlPattern.test(part)) {
+            segments.push(
+              <a
+                key={`${id}-link-${offset}-${index}`}
+                href={part}
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-orange-700 underline-offset-2 hover:underline [overflow-wrap:anywhere]"
+              >
+                {part}
+              </a>
+            );
+          } else if (part) {
+            segments.push(<span key={`${id}-text-${offset}-${index}`}>{part}</span>);
+          }
+        });
       }
 
-      return <span key={`${id}-text-${index}`}>{part}</span>;
+      segments.push(
+        <a
+          key={`${id}-markdown-${offset}`}
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="font-semibold text-orange-700 underline-offset-2 hover:underline [overflow-wrap:anywhere]"
+        >
+          {label}
+        </a>
+      );
+
+      lastIndex = offset + match.length;
+      return match;
     });
+
+    if (lastIndex < paragraph.length) {
+      const remainingText = paragraph.slice(lastIndex);
+      const textSegments = remainingText.split(urlPattern);
+
+      textSegments.forEach((part, index) => {
+        if (urlPattern.test(part)) {
+          segments.push(
+            <a
+              key={`${id}-link-${lastIndex}-${index}`}
+              href={part}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-orange-700 underline-offset-2 hover:underline [overflow-wrap:anywhere]"
+            >
+              {part}
+            </a>
+          );
+        } else if (part) {
+          segments.push(<span key={`${id}-text-${lastIndex}-${index}`}>{part}</span>);
+        }
+      });
+    }
+
+    return segments;
   };
 
   return (
@@ -120,7 +171,7 @@ function StorySection({
         <div>
           <h2
             className={`text-center font-bold tracking-tight text-slate-900 ${
-              id === "mission" ? "text-3xl sm:text-4xl" : "text-3xl"
+              id === "mission" ? "text-3xl sm:text-5xl" : "text-2xl sm:text-3xl"
             }`}
           >
             {title}
@@ -129,8 +180,8 @@ function StorySection({
             {paragraphs.map((paragraph, index) => (
               <p
                 key={`${id}-paragraph-${index}`}
-                className={`text-base leading-7 text-slate-700 ${
-                  justifyDescription ? "text-justify" : ""
+                className={`break-words ${id === "mission" ? "text-xl" : "text-base"} leading-7 text-slate-700 ${
+                  justifyDescription && id !== "story" && id !== "mission" ? "text-left sm:text-justify" : ""
                 } ${index === 0 && id === "story" ? "font-bold text-center" : ""}`}
               >
                 {linkifyParagraph(paragraph)}
@@ -166,9 +217,15 @@ export default function AboutPage() {
             priority
             sizes="100vw"
             className="object-cover"
+            style={{ objectPosition: "center 12%" }}
           />
           {/* Dark overlay for text legibility */}
           <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute bottom-4 left-8 sm:bottom-6 sm:left-10 lg:bottom-8 lg:left-12">
+            <h1 className="text-4xl font-bold tracking-tight text-white drop-shadow sm:text-5xl lg:text-6xl">
+              About
+            </h1>
+          </div>
         </div>
 
       <StorySection {...aboutStorySections[0]} />
@@ -176,7 +233,7 @@ export default function AboutPage() {
 
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <h2 className="text-center text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+        <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">
           Our Team
         </h2>
         <div className="mt-12 space-y-14">

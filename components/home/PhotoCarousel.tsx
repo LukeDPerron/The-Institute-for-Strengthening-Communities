@@ -136,7 +136,7 @@ export function PhotoCarousel({
         sizes={imageSizes}
         loading={eager ? "eager" : "lazy"}
         fetchPriority={eager ? "high" : "auto"}
-        className={`${currentSlide.imageFit === "contain" ? "object-contain" : "object-cover"} transition-transform duration-300`}
+        className={`${currentSlide.imageFit === "contain" ? "object-contain" : "object-cover lg:object-cover carousel-mobile-contain"} transition-transform duration-300`}
         style={{
           objectPosition: currentSlide.imagePosition ?? "center",
           transform: `scale(${currentSlide.imageScale ?? 1})`,
@@ -151,7 +151,7 @@ export function PhotoCarousel({
           sizes={imageSizes}
           loading="lazy"
           fetchPriority="auto"
-          className={`${slides[transitionFromIndex].imageFit === "contain" ? "object-contain" : "object-cover"} transition-opacity duration-[550ms] ${
+          className={`${slides[transitionFromIndex].imageFit === "contain" ? "object-contain" : "object-cover lg:object-cover carousel-mobile-contain"} transition-opacity duration-[550ms] ${
             isFadingOutPrevious ? "opacity-0" : "opacity-100"
           }`}
           style={{
@@ -177,19 +177,19 @@ export function PhotoCarousel({
           type="button"
           onClick={() => setIsPaused((previous) => !previous)}
           aria-label={isPaused ? "Play slideshow" : "Pause slideshow"}
-          className="absolute left-2 top-2 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-black/45 text-white ring-1 ring-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.55)] backdrop-blur-[1px] transition-all duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white active:scale-90"
+          className="absolute left-2 top-2 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-black/45 text-white ring-1 ring-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.55)] backdrop-blur-[1px] transition-all duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white active:scale-90"
         >
           {isPaused ? (
-            <IoPlayCircle aria-hidden="true" className="h-8 w-8" />
+            <IoPlayCircle aria-hidden="true" className="h-9 w-9" />
           ) : (
-            <IoPauseCircle aria-hidden="true" className="h-8 w-8" />
+            <IoPauseCircle aria-hidden="true" className="h-9 w-9" />
           )}
         </button>
       )}
 
       {sectionLabel ? (
         <div className="pointer-events-none absolute inset-x-0 top-4 z-20 flex justify-center px-4">
-          <p className="rounded-full bg-orange-500 px-3 py-0.5 text-sm font-extrabold uppercase tracking-[0.16em] text-white shadow-md sm:text-base">
+          <p className="rounded-full bg-orange-500 px-3 py-0.5 text-sm font-extrabold uppercase tracking-[0.08em] text-white shadow-md sm:text-base sm:tracking-[0.16em]">
             {sectionLabel}
           </p>
         </div>
@@ -221,9 +221,9 @@ export function PhotoCarousel({
           type="button"
           onClick={prevSlide}
           aria-label="Previous photo"
-          className="absolute left-2 top-1/2 z-30 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-2xl leading-none text-white ring-1 ring-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.55)] backdrop-blur-[1px] pointer-events-auto transition-all duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white active:-translate-x-0.5 active:scale-90 active:text-orange-500"
+          className="absolute left-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-2xl leading-none text-white ring-1 ring-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.55)] backdrop-blur-[1px] pointer-events-auto transition-all duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white active:-translate-x-0.5 active:scale-90 active:text-orange-500"
         >
-          <IoArrowBackCircle aria-hidden="true" className="h-8 w-8" />
+          <IoArrowBackCircle aria-hidden="true" className="h-9 w-9" />
         </button>
       )}
 
@@ -233,9 +233,9 @@ export function PhotoCarousel({
           type="button"
           onClick={nextSlide}
           aria-label="Next photo"
-          className="absolute right-2 top-1/2 z-30 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-2xl leading-none text-white ring-1 ring-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.55)] backdrop-blur-[1px] pointer-events-auto transition-all duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white active:translate-x-0.5 active:scale-90 active:text-orange-500"
+          className="absolute right-2 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/45 text-2xl leading-none text-white ring-1 ring-white/35 shadow-[0_2px_8px_rgba(0,0,0,0.55)] backdrop-blur-[1px] pointer-events-auto transition-all duration-150 hover:scale-110 focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white active:translate-x-0.5 active:scale-90 active:text-orange-500"
         >
-          <IoArrowForwardCircle aria-hidden="true" className="h-8 w-8" />
+          <IoArrowForwardCircle aria-hidden="true" className="h-9 w-9" />
         </button>
       )}
     </div>

@@ -16,9 +16,15 @@ body {
   font-family: "Inter", "Segoe UI", Arial, Helvetica, sans-serif;
   line-height: 1.6;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 @layer base {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
   h1,
   h2,
   h3 {
@@ -28,5 +34,19 @@ body {
 
   p {
     line-height: 1.75;
+  }
+}
+
+@media (max-width: 768px) {
+  p,
+  li,
+  a {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .carousel-mobile-contain {
+    object-fit: contain !important;
+    transform: none !important;
   }
 }

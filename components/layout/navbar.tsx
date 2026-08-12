@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 // Pages that have a full-width hero/banner image behind the navbar.
 // On these pages the navbar overlays the banner and stays transparent.
 // On all other pages the navbar is always white.
-const BANNER_PAGES = ["/about"];
+const BANNER_PAGES = ["/about", "/news", "/help-us-grow"];
 
 // Responsive header with mobile menu toggle.
 // Sits at the top of the page; overlays banner pages and stays transparent there.
@@ -135,7 +135,7 @@ export function Navbar() {
         {/* Mobile: hamburger toggle */}
         <button
           type="button"
-          className={`inline-flex items-center rounded-md border px-3 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 md:hidden ${
+          className={`inline-flex min-h-11 items-center rounded-md border px-4 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 md:hidden ${
             isWhite
               ? "border-slate-300 text-slate-700 hover:bg-slate-50"
               : "border-white/70 text-white hover:bg-white/10"

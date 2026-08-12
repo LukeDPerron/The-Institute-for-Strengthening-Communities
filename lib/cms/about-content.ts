@@ -24,7 +24,7 @@ export type StorySectionContent = {
 };
 
 export const aboutImageSources: AboutImageSources = {
-  hero: "/images/about/header.jpg",
+  hero: "/images/about/About_picture.png",
   mission: "/images/about/mission.png",
   story: "/images/about/Our-Story.png",
 };
@@ -39,7 +39,7 @@ export const boardMembers: TeamMember[] = [
   {
     name: "David A. Bloom, M.D.",
     role: "Board Chair",
-    bio: "",
+    bio: "David A. Bloom, M.D. FACR FAAP is Adjunct Clinical Professor of Radiology in the Department of Radiology at Michigan Medicine and staff pediatric radiologist at C.S. Mott Children’s Hospital. For over 30 years, Dr. Bloom has practiced pediatric radiology with a focus on body imaging, including oncologic imaging. Dr. Bloom graduated from Tufts University with a B.A. in classical studies, an M.D. from the University of Michigan Medical School, and completed his residency and fellowship training at Harvard Medical School (Brigham and Women’s Hospital and The Children's Hospital, Boston). Dr. Bloom was awarded Phi Beta Kappa from Tufts University and Alpha Omega Alpha from the University of Michigan Medical School. He has also been awarded the Outstanding Medical Education and Teaching Award, 'The Modern John Morgan, Father of Medical Education' from Beaumont Health System and the Jack O. Haller - Thomas L. Slovis Award, from the Society for Pediatric Radiology in recognition of excellence in pediatric radiology education. Dr. Bloom’s curriculum vitae lists over 60 publications, 15 book chapters, and multiple extramural invited lectures, poster presentations and scientific abstracts.",
     imageSrc: "/images/about/mrBloom.png",
   },
 
@@ -58,7 +58,7 @@ export const boardMembers: TeamMember[] = [
   },
   {
     name: "Kelly Carey",
-    role: "Board Member & Treasurer",
+    role: "Treasurer & Director",
     bio: "Kelly Carey, MBA is a Curriculum Production Consultant for Oakland Schools, a regional educational service agency in Michigan, and has over 30 years experience in public education. She is a trainer through the International Institute for Restorative Practices and regularly provides restorative practices training at the county and local district level. Kelly is currently adapting the social-emotional curriculum units from the Michigan Model for Health into restorative sessions at the middle and high school levels. She has worked with a variety of Detroit-based non-profit organizations as lead facilitator and currently facilitates conversations for several communities under a grant from the Michigan Health Endowment Fund. Kelly believes that a community-focused approach is essential to any successful endeavor.",
     imageSrc: "/images/boardAndStaff/KellyCarey.jpg",
   },
@@ -68,13 +68,25 @@ export const boardMembers: TeamMember[] = [
     bio: "",
     imageSrc: "/images/boardAndStaff/DavidDeutsch.jpg",
   },
-
-
-        {
+  {
     name: "Sierra Pilarski",
     role: "Assistant to the President",
     bio: "",
     imageSrc: "/images/boardAndStaff/Pilarski.png",
+  },
+
+  {
+    name: "Lucas Perron",
+    role: "Website Developer/Administrator",
+    bio: "",
+    imageSrc: "/images/about/Hailey_headshot.jpg",
+  },
+
+  {
+    name: "Hailey Bloom",
+    role: "Therapy Dog",
+    bio: "",
+    imageSrc: "/images/about/Hailey_headshot.jpg",
   },
 
 ];
@@ -100,9 +112,9 @@ export const aboutStorySections: StorySectionContent[] = [
     paragraphs: [
       "When you find your people, you can create something amazing together.",
       "Amy, Julie, and Kelly met during their time working for Oakland Schools, a regional educational service agency located in Oakland County, Michigan. Starting in 2014, they created the Citizen Dialogue program for the Center for the Study of Citizenship at Wayne State University to help people discuss controversial issues.",
-      "Wanting to deepen their impact, they put their expertise in restorative and democratic practices together to create a multi-faceted approach to building community and addressing shared concerns together during the 2019-20 school year through a partnership with the Center for the Study of Citizenship. See: https://csc.wayne.edu/programs/institute-for-strengthening-communities and https://www.nationalcivicleague.org/ncr-article/building-civic-capacity-in-schools-and-communities/",
-      "As COVID closed down school buildings in the spring of 2020, Amy met Michael through an online convening by Patricia Moore Harbour from the Kettering Foundation. Michael is the Executive Director of Detroit Cares Mentoring Movement and has been involved with the Kettering Foundation since the 1970s when he lived in the California bay area.  Both saw diversity as a strength in problem-solving. They became fast friends and paved a way for them to work together to educate for democratic public life.",
-      "After COVID, Amy returned to a high school classroom to close out her teaching career. Dr. Kristy Spann from Bentley Community Schools hired her with the understanding that she would be able to create a class that focused on educating for democratic public life. Using Peter Levine’s book, “What Should We Do?,” she created a class that culminated in a student-led conference with the help of Julie and Kelly.  See https://lessenberryink.com/2024/01/18/making-the-constitution-relevant-and-fun/",
+      "Wanting to deepen their impact, they put their expertise in restorative and democratic practices together to create a multi-faceted approach to building community and addressing shared concerns together during the 2019-20 school year through a partnership with the Center for the Study of Citizenship and called it [Institute for Strengthening Communities](https://csc.wayne.edu/programs/institute-for-strengthening-communities). See: [Building Civic Capacity in Schools and Communities](https://www.nationalcivicleague.org/ncr-article/building-civic-capacity-in-schools-and-communities/)",
+      "As COVID closed down school buildings in the spring of 2020, Amy met Michael through an online convening by Patricia Moore Harbour from the Kettering Foundation. Michael is the Executive Director of Detroit Cares Mentoring Movement and has been involved with the Kettering Foundation since the 1990s when he lived in the California bay area.  Both saw diversity as a strength in problem-solving. They became fast friends and paved a way for them to work together to educate for democratic public life.",
+      "After COVID, Amy returned to a high school classroom to close out her teaching career. Dr. Kristy Spann from Bentley Community Schools hired her with the understanding that she would be able to create a class that focused on educating for democratic public life. Using Peter Levine’s book, “What Should We Do?,” she created a class that culminated in a student-led conference with the help of Julie and Kelly. See [Making the Constitution Relevant and Fun](https://lessenberryink.com/2024/01/18/making-the-constitution-relevant-and-fun/)",
       "The team received a grant from the Kresge Foundation to run the conference in 2023 and invited Michael to join the effort. They obtained funding for a student-led conference for the next two years, including a scale up grant.  Given the data coming from the pre- and post- event surveys as well as student interviews, they recruited David and David to help create a new non-profit organization - The Institute for Strengthening Communities - to bring this work to places throughout Michigan and beyond.",
     ],
     imageSrc: aboutImageSources.story,

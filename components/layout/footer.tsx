@@ -21,7 +21,7 @@ export function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-900">
             Quick links
           </h3>
-          <ul className="mt-3 grid w-fit grid-cols-[max-content_max-content] gap-x-6 gap-y-2">
+          <ul className="mt-3 grid w-full grid-cols-2 gap-x-4 gap-y-2 sm:w-fit sm:grid-cols-[max-content_max-content] sm:gap-x-6">
             {siteConfig.navItems.map((item) => {
               const groupHref = item.items[0]?.href.split("#")[0] ?? "/";
               return (

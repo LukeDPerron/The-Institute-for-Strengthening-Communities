@@ -58,7 +58,7 @@ export const siteConfig = {
       ],
     },
     {
-      label: "Membership Only",
+      label: "Members Only",
       items: [
         { href: "/membership", label: "Research and Reports" },
         { href: "/membership", label: "Newsletters" },

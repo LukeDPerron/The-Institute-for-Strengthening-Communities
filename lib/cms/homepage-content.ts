@@ -39,7 +39,7 @@ export const boardMembers: TeamMember[] = [
   },
   {
     name: "Kelly Carey",
-    title: "Board Member & Treasurer",
+    title: "Treasurer & Director",
     imageSrc: "/images/boardAndStaff/KellyCarey.jpg",
   },
   {
@@ -48,15 +48,20 @@ export const boardMembers: TeamMember[] = [
     imageSrc: "/images/boardAndStaff/JEMMuldoon_Headshot.jpg",
   },
   {
-    name: "Sierra",
+    name: "Sierra Pilarski",
     title: "Assistant to the President",
     imageSrc: "/images/boardAndStaff/Pilarski.png",
+  },
+  {
+    name: "Lucas Perron",
+    title: "Web Master",
+    imageSrc: "/images/boardAndStaff/Hailey_headshot.jpg",
   },
 ];
 
 export const homepageContent: HomepageContent = {
   missionQuote:
-    "The organization’s mission is to educate individuals, communities, and local leaders in democratic and restorative principles and practices that strengthen trust, civic engagement, and collaboration. ",
+    "The Institute for Strengthening Communities' mission is to educate individuals, communities, and local leaders in democratic and restorative principles and practices that strengthen trust, civic engagement, and collaboration. ",
   missionBg: "/images/about/Mission.png",
   mainPhotos: [
     {
@@ -143,18 +148,6 @@ export const homepageContent: HomepageContent = {
       caption: "Students engage in a structured conversation about a controversial public issue they identified prior to the conference. Elevating Student Voices Conference 2023",
     },
     {
-      image: "/images/landingPhotos/SkubalResize.png",
-      title: "Group Session 2",
-      caption: "During the after-conference celebration, students meet with Tarik Skubal before watching a Tiger’s game. Elevating Student Voices Conference 2023",
-      imagePosition: "center 45%",
-      imageScale: 1,
-    },
-    {
-      image: "/images/LandingPhotosNew/18.Landing.2023TG3.jpg",
-      title: "Group Session 1",
-      caption: "Students enjoy a Tiger’s game after a full day at the conference. Elevating Student Voices Conference 2023",
-    },
-    {
       image: "/images/LandingPhotosNew/19.Landing.2023.HeadingtoBreakout.jpg",
       title: "ESV Shirt",
       caption: "Students head off to breakouts in the Student Center at Wayne State University. Elevating Student Voices Conference 2023",
@@ -173,12 +166,7 @@ export const homepageContent: HomepageContent = {
       image: "/images/LandingPhotosNew/22.Landing2023deliberationartifact.jpg",
       title: "Deliberation Artifact",
       caption: "Student artifact on the biggest problems in education. Elevating Student Voices Conference 2023",
-    },
-    {
-      image: "/images/LandingPhotosNew/23.Landing2025.Collaboration.jpg",
-      title: "Collaboration",
-      caption: "Bentley student voting on ideas of peers in plenary session. Elevating Student Voices Conference 2025",
-    },
+    },  
     {
       image: "/images/LandingPhotosNew/24.Landing2025celebraton.jpg",
       title: "Celebration",
