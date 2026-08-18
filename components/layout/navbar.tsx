@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
 
@@ -16,38 +16,26 @@ const BANNER_PAGES = ["/about"];
 // The top-level nav button for the current page's group is underlined.
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [clickedNavItem, setClickedNavItem] = useState<string | null>(null);
   const pathname = usePathname();
 
-  const handleTopLevelNavClick = (
-    label: string,
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
-    setClickedNavItem(label);
-
+  const handleTopLevelNavClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     // Prevent focus-within styles from keeping the dropdown visible after click navigation.
     if (event.detail > 0) {
       event.currentTarget.blur();
     }
   };
 
+  const isNavGroupActive = (label: string) => {
+    if (pathname === "/") return false;
+
+    const navItem = siteConfig.navItems.find((item) => item.label === label);
+    if (!navItem) return false;
+
+    return navItem.items.some((dropdownItem) => dropdownItem.href.split("#")[0] === pathname);
+  };
+
   const hasBanner = BANNER_PAGES.includes(pathname);
   const isWhite = !hasBanner;
-
-  // Update underline when pathname changes (e.g., via clicking links on the page)
-  useEffect(() => {
-    if (pathname === "/") {
-      // No nav group is active on the homepage
-      setClickedNavItem(null);
-    } else {
-      const activeItem = siteConfig.navItems.find((item) =>
-        item.items.some((dropdownItem) => dropdownItem.href.split("#")[0] === pathname)
-      );
-      if (activeItem) {
-        setClickedNavItem(activeItem.label);
-      }
-    }
-  }, [pathname]);
 
   return (
     <header
@@ -81,7 +69,7 @@ export function Navbar() {
         <div className="hidden items-center gap-6 md:flex">
           <ul className="flex items-center gap-5" role="list">
             {siteConfig.navItems.map((item) => {
-              const active = clickedNavItem === item.label;
+              const active = isNavGroupActive(item.label);
               const groupHref = item.items[0]?.href.split("#")[0] ?? "/";
               return (
               <li key={item.label} className="group relative pt-1">
@@ -90,7 +78,7 @@ export function Navbar() {
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
                   aria-current={active ? "page" : undefined}
-                  onClick={(event) => handleTopLevelNavClick(item.label, event)}
+                  onClick={handleTopLevelNavClick}
                   className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
                     active ? "underline underline-offset-4" : ""
                   } ${
@@ -111,7 +99,6 @@ export function Navbar() {
                       <Link
                         href={dropdownItem.href}
                         role="menuitem"
-                        onClick={() => setClickedNavItem(item.label)}
                         className="block rounded-md px-3 py-1.5 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
                       >
                         {dropdownItem.label}
@@ -166,7 +153,7 @@ export function Navbar() {
               </Link>
             </li>
             {siteConfig.navItems.map((item) => {
-              const active = clickedNavItem === item.label;
+              const active = isNavGroupActive(item.label);
               return (
               <li key={item.label}>
                 <details>
@@ -182,7 +169,6 @@ export function Navbar() {
                           href={dropdownItem.href}
                           className="block rounded-md px-2 py-2 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700"
                           onClick={() => {
-                            setClickedNavItem(item.label);
                             setIsOpen(false);
                           }}
                         >

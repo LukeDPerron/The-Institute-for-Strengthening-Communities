@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -67,12 +67,13 @@ export function PhotoCarousel({
   const [isFadingOutPrevious, setIsFadingOutPrevious] = useState(false);
   const totalSlides = slides.length;
 
-  if (totalSlides === 0) return null;
+  const getPreviousIndex = useCallback(
+    (index: number) => (index - 1 + totalSlides) % totalSlides,
+    [totalSlides]
+  );
+  const getNextIndex = useCallback((index: number) => (index + 1) % totalSlides, [totalSlides]);
 
-  const getPreviousIndex = (index: number) => (index - 1 + totalSlides) % totalSlides;
-  const getNextIndex = (index: number) => (index + 1) % totalSlides;
-
-  const changeSlide = (getTargetIndex: (index: number) => number) => {
+  const changeSlide = useCallback((getTargetIndex: (index: number) => number) => {
     setCurrentIndex((previous) => {
       const next = getTargetIndex(previous);
       if (next === previous) return previous;
@@ -85,7 +86,7 @@ export function PhotoCarousel({
 
       return next;
     });
-  };
+  }, []);
 
   const prevSlide = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -109,7 +110,7 @@ export function PhotoCarousel({
     return () => {
       window.clearInterval(autoPlayTimer);
     };
-  }, [autoPlay, totalSlides, isPaused]);
+  }, [autoPlay, totalSlides, isPaused, changeSlide, getNextIndex]);
 
   useEffect(() => {
     if (transitionFromIndex === null) return;
@@ -123,6 +124,8 @@ export function PhotoCarousel({
       window.clearTimeout(cleanupTimer);
     };
   }, [transitionFromIndex]);
+
+  if (totalSlides === 0) return null;
 
   const currentSlide = slides[currentIndex];
 
