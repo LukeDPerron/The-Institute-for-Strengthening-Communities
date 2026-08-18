@@ -25,7 +25,7 @@ export type StorySectionContent = {
 
 export const aboutImageSources: AboutImageSources = {
   hero: "/images/about/About_picture.png",
-  mission: "/images/about/mission.png",
+  mission: "/images/about/About_Photo_1.jpg",
   story: "/images/about/Our-Story.png",
 };
 
@@ -79,7 +79,7 @@ export const boardMembers: TeamMember[] = [
     name: "Lucas Perron",
     role: "Website Developer/Administrator",
     bio: "",
-    imageSrc: "/images/about/Hailey_headshot.jpg",
+    imageSrc: "/images/about/Luke_Perron_Headshot.jpg",
   },
 
   {
