@@ -60,7 +60,7 @@ export const boardMembers: TeamMember[] = [
     name: "Kelly Carey",
     role: "Treasurer & Director",
     bio: "Kelly Carey, MBA is a Curriculum Production Consultant for Oakland Schools, a regional educational service agency in Michigan, and has over 30 years experience in public education. She is a trainer through the International Institute for Restorative Practices and regularly provides restorative practices training at the county and local district level. Kelly is currently adapting the social-emotional curriculum units from the Michigan Model for Health into restorative sessions at the middle and high school levels. She has worked with a variety of Detroit-based non-profit organizations as lead facilitator and currently facilitates conversations for several communities under a grant from the Michigan Health Endowment Fund. Kelly believes that a community-focused approach is essential to any successful endeavor.",
-    imageSrc: "/images/boardAndStaff/KellyCarey.jpg",
+    imageSrc: "/images/boardAndStaff/KellyCarey.JPG",
   },
   {
     name: "David Deutsch",

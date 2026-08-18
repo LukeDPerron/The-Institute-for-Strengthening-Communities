@@ -40,7 +40,7 @@ export const boardMembers: TeamMember[] = [
   {
     name: "Kelly Carey",
     title: "Treasurer & Director",
-    imageSrc: "/images/boardAndStaff/KellyCarey.jpg",
+    imageSrc: "/images/boardAndStaff/KellyCarey.JPG",
   },
   {
     name: "Julie McDaniel-Muldoon",

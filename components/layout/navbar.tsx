@@ -56,7 +56,7 @@ export function Navbar() {
           className="inline-flex shrink-0 items-center lg:-ml-28"
         >
           <Image
-            src="/Transparent_Logo.png"
+            src="/transparent_Logo.png"
             alt={`${siteConfig.name} logo`}
             width={619}
             height={70}
