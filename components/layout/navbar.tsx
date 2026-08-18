@@ -9,7 +9,7 @@ import { siteConfig } from "@/lib/site-config";
 // Pages that have a full-width hero/banner image behind the navbar.
 // On these pages the navbar overlays the banner and stays transparent.
 // On all other pages the navbar is always white.
-const BANNER_PAGES = ["/about", "/help-us-grow"];
+const BANNER_PAGES = ["/about"];
 
 // Responsive header with mobile menu toggle.
 // Sits at the top of the page; overlays banner pages and stays transparent there.
