@@ -4,7 +4,7 @@ import { Navbar } from "@/components/layout/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nonprofit Bloom",
+  title: "The Institute for Strengthening Communities",
   description: "",
 };
 
