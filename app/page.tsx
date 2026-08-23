@@ -79,20 +79,20 @@ function MissionBox({ className = "" }: { className?: string }) {
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 py-8 text-center sm:px-12 sm:py-12">
-        <p className="mb-3 text-3xl font-extrabold uppercase tracking-[0.08em] text-white sm:mb-4 sm:text-5xl sm:tracking-[0.14em]">
+        <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.08em] text-white sm:mb-4 sm:text-4xl sm:tracking-[0.14em]">
           Stronger Communities. 
         </p>
-        <p className="mb-5 text-3xl font-extrabold uppercase tracking-[0.08em] text-orange-500 sm:mb-6 sm:text-5xl sm:tracking-[0.14em]">
+        <p className="mb-5 text-2xl font-extrabold uppercase tracking-[0.08em] text-orange-500 sm:mb-6 sm:text-4xl sm:tracking-[0.14em]">
         Better Futures.
         </p>
         <blockquote className="mx-auto w-[92%] sm:w-[75%]">
-          <p className="text-lg font-medium leading-relaxed text-white drop-shadow sm:text-2xl lg:text-[1.75rem]">
+          <p className="text-base font-medium leading-relaxed text-white drop-shadow sm:text-xl lg:text-2xl">
             {homepageContent.missionQuote}
           </p>
         </blockquote>
         <Link
           href="/about"
-          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-xl font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 sm:mt-8 sm:text-2xl"
+          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-lg font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 sm:mt-8 sm:text-xl"
         >
           Our Mission
         </Link>

@@ -195,6 +195,8 @@ export const homepageContent: HomepageContent = {
     { image: "/images/EvidenceOfImpact/A.1.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/A.2.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/A.3.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/A.4.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/A.5.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/B.0.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/B.1.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/B.2.EI.png", title: "Evidence of Impact", caption: "" },
@@ -202,9 +204,12 @@ export const homepageContent: HomepageContent = {
     { image: "/images/EvidenceOfImpact/C.0.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/C.1.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/C.2.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/C.3.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/C.4.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/D.0.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/D.1.EI.png", title: "Evidence of Impact", caption: "" },
     { image: "/images/EvidenceOfImpact/D.2.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/D.3.EI.png", title: "Evidence of Impact", caption: "" },
   ],
 };
 
