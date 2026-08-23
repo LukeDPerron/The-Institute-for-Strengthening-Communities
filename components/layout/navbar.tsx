@@ -53,7 +53,7 @@ export function Navbar() {
         <Link
           href="/"
           aria-label={siteConfig.name}
-          className="inline-flex shrink-0 items-center lg:-ml-28"
+          className="inline-flex shrink-0 items-center 2xl:-ml-16"
         >
           <Image
             src="/transparent_Logo.png"
@@ -61,7 +61,7 @@ export function Navbar() {
             width={619}
             height={70}
             priority
-            className="h-auto w-36 sm:w-44 lg:w-72"
+            className="h-auto w-36 sm:w-44 lg:w-56 xl:w-64 2xl:w-72"
           />
         </Link>
 
