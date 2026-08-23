@@ -138,7 +138,7 @@ export default function Home() {
 
             {/* Bottom-leftMain Photos carousel (moved from top-right) */}
             <div
-              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
+              className="aspect-[3/2] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
               aria-label="Featured Photos"
             >
               <PhotoCarousel
@@ -154,7 +154,7 @@ export default function Home() {
 
             {/* Bottom-right: Student Testimonies */}
             <div
-              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
+              className="aspect-[3/2] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
               aria-label="Student Testimonies"
             >
               <PhotoCarousel
