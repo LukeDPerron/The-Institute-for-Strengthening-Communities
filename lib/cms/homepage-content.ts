@@ -25,7 +25,7 @@ export const boardMembers: TeamMember[] = [
   {
     name: "David A. Bloom, M.D.",
     title: "Board Chair",
-    imageSrc: "/images/about/mrBloom.png",
+    imageSrc: "/images/boardAndStaff/DABheadshot.png",
   },
   {
     name: "Amy B. Bloom",

@@ -40,7 +40,7 @@ export const boardMembers: TeamMember[] = [
     name: "David A. Bloom, M.D.",
     role: "Board Chair",
     bio: "David A. Bloom, M.D. FACR FAAP is Adjunct Clinical Professor of Radiology in the Department of Radiology at Michigan Medicine and staff pediatric radiologist at C.S. Mott Children’s Hospital. For over 30 years, Dr. Bloom has practiced pediatric radiology with a focus on body imaging, including oncologic imaging. Dr. Bloom graduated from Tufts University with a B.A. in classical studies, an M.D. from the University of Michigan Medical School, and completed his residency and fellowship training at Harvard Medical School (Brigham and Women’s Hospital and The Children's Hospital, Boston). Dr. Bloom was awarded Phi Beta Kappa from Tufts University and Alpha Omega Alpha from the University of Michigan Medical School. He has also been awarded the Outstanding Medical Education and Teaching Award, 'The Modern John Morgan, Father of Medical Education' from Beaumont Health System and the Jack O. Haller - Thomas L. Slovis Award, from the Society for Pediatric Radiology in recognition of excellence in pediatric radiology education. Dr. Bloom’s curriculum vitae lists over 60 publications, 15 book chapters, and multiple extramural invited lectures, poster presentations and scientific abstracts.",
-    imageSrc: "/images/about/mrBloom.png",
+    imageSrc: "/images/boardAndStaff/DABheadshot.png",
   },
 
       {
