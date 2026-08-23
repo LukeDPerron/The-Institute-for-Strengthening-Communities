@@ -132,13 +132,13 @@ export default function Home() {
           <div className="order-first min-w-0 self-start grid grid-cols-1 gap-3 md:grid-cols-2 lg:order-none">
 
             {/* Top box: Mission statement */}
-            <div className="min-h-[360px] overflow-hidden rounded-[4px] border border-[#e7e7e7] shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:col-span-2 md:min-h-[400px] lg:min-h-0 lg:aspect-[3.4/1]">
+            <div className="min-h-[360px] overflow-hidden rounded-[4px] border border-[#e7e7e7] shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:col-span-2 md:min-h-[400px] lg:min-h-[320px]">
               <MissionBox className="h-full w-full" />
             </div>
 
             {/* Bottom-leftMain Photos carousel (moved from top-right) */}
             <div
-              className="aspect-[3/2] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
+              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
               aria-label="Featured Photos"
             >
               <PhotoCarousel
@@ -154,7 +154,7 @@ export default function Home() {
 
             {/* Bottom-right: Student Testimonies */}
             <div
-              className="aspect-[3/2] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
+              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
               aria-label="Student Testimonies"
             >
               <PhotoCarousel
