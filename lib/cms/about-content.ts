@@ -24,7 +24,7 @@ export type StorySectionContent = {
 };
 
 export const aboutImageSources: AboutImageSources = {
-  hero: "/images/about/About_picture.png",
+  hero: "/images/about/Hall_3.png",
   mission: "/images/about/About_Photo_1.jpg",
   story: "/images/about/Our-Story.png",
 };

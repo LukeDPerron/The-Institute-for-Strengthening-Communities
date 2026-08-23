@@ -217,7 +217,7 @@ export default function AboutPage() {
             priority
             sizes="100vw"
             className="object-cover"
-            style={{ objectPosition: "center 12%" }}
+            style={{ objectPosition: "center 20%" }}
           />
           {/* Dark overlay for text legibility */}
           <div className="absolute inset-0 bg-black/40" />

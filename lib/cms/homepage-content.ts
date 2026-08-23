@@ -191,140 +191,20 @@ export const homepageContent: HomepageContent = {
     },
   ],
   testimonies: [
-    {
-      image: "/images/EvidenceOfImpact/1.EI_Conf.Goals.jpg",
-      title: "Evidence of Impact",
-      caption: "",
-    },
-    {
-      image: "/images/EvidenceOfImpact/2.EI_StudentQuote.CivicActor2.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/3.EI.2024Data.LC.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Storytelling and Listening 2024",
-    },
-    {
-      image: "/images/EvidenceOfImpact/4.EI_StudentQuote.Agency.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/5.EI_2025DataLC.JPG",
-      title: "Evidence of Impact",
-      caption: "Impact of Storytelling and Listening 2025",
-    },
-    {
-      image: "/images/EvidenceOfImpact/6.EI_StudentQuoteBelonging.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/7.EI_2024DataRespecfulConv.final.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Citizen Dialogue (2024) - Unpacking a Public Issue",
-    },
-    {
-      image: "/images/EvidenceOfImpact/8.EI_2025DataRespectfulConv.final.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Citizen Dialogue (2025) - Unpacking a Public Issue",
-    },
-    {
-      image: "/images/EvidenceOfImpact/9.EI_StudentQuote.agency.CitDia.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/10.EI_2024Data.DiscussCit.JPG",
-      title: "Evidence of Impact",
-      caption: "Impact of Discussing Public Issues on Educating for Citizenship (2024)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/11.EI.2025Data.DiscussCit.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Discussing Public Issues on Educating for Citizenship (2025)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/12.EI_StudentQVoiceAgency.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/13.EI_2024Data.RespectfulDial.final.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Conference on Experiences with Respectful Conversations (2024)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/14.EI_2025Data.RespectfulDial.final.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Conference on Experiences with Respectful Conversations (2025)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/15.EI.StudentQuote.CCivic Actor.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/16.EI.2024Data.IdeasEd.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Problem-Solving Experience on Idea Formation (2024)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/17..EI_2025.Data.IdeasEd.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Problem-Solving Experience on Idea Formation (2025)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/18.EI__Agency Quote.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/19.EI_Data2024.Problemsolvpositivelearning.final.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Problem-Solving Session on Students’ View of Learning (2024)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/20.EI_2025Data.problsolv.ED.final.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Problem-Solving Session on Students’ View of Learning (2025)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/21.EI_.Quote2.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/22.EI_2025DataWorldviewdiscourse.final.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Students’ Cross-District Conversations (2025)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/23.EI_.StudentQuote.civicactor.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/24.EI.2024Data.Voting.JPG",
-      title: "Evidence of Impact",
-      caption: "Impact of Conference on Importance of Voting (2024)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/25.EI_2025DataVoting.jpg",
-      title: "Evidence of Impact",
-      caption: "Impact of Conference on Importance of Voting (2025)",
-    },
-    {
-      image: "/images/EvidenceOfImpact/26.EI_.StudentQuote.Future.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
-    {
-      image: "/images/EvidenceOfImpact/27.EI_StudentQuote.CivicEd.jpg",
-      title: "Evidence of Impact",
-      caption: "Student Reflection: Post-Conference Interview",
-    },
+    { image: "/images/EvidenceOfImpact/A.0.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/A.1.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/A.2.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/A.3.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/B.0.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/B.1.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/B.2.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/B.3.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/C.0.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/C.1.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/C.2.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/D.0.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/D.1.EI.png", title: "Evidence of Impact", caption: "" },
+    { image: "/images/EvidenceOfImpact/D.2.EI.png", title: "Evidence of Impact", caption: "" },
   ],
 };
+
