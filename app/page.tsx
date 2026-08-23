@@ -79,20 +79,20 @@ function MissionBox({ className = "" }: { className?: string }) {
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-5 py-8 text-center sm:px-12 sm:py-12">
-        <p className="mb-3 text-2xl font-extrabold uppercase tracking-[0.08em] text-white sm:mb-4 sm:text-4xl sm:tracking-[0.14em]">
+        <p className="mb-3 text-3xl font-extrabold uppercase tracking-[0.08em] text-white sm:mb-4 sm:text-5xl sm:tracking-[0.14em]">
           Stronger Communities. 
         </p>
-        <p className="mb-5 text-2xl font-extrabold uppercase tracking-[0.08em] text-orange-500 sm:mb-6 sm:text-4xl sm:tracking-[0.14em]">
+        <p className="mb-5 text-3xl font-extrabold uppercase tracking-[0.08em] text-orange-500 sm:mb-6 sm:text-5xl sm:tracking-[0.14em]">
         Better Futures.
         </p>
         <blockquote className="mx-auto w-[92%] sm:w-[75%]">
-          <p className="text-base font-medium leading-relaxed text-white drop-shadow sm:text-xl lg:text-2xl">
+          <p className="text-lg font-medium leading-relaxed text-white drop-shadow sm:text-2xl lg:text-[1.75rem]">
             {homepageContent.missionQuote}
           </p>
         </blockquote>
         <Link
           href="/about"
-          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-lg font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 sm:mt-8 sm:text-xl"
+          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-orange-500 px-6 py-3 text-xl font-semibold text-white shadow transition-colors hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 sm:mt-8 sm:text-2xl"
         >
           Our Mission
         </Link>
@@ -132,13 +132,13 @@ export default function Home() {
           <div className="order-first min-w-0 self-start grid grid-cols-1 gap-3 md:grid-cols-2 lg:order-none">
 
             {/* Top box: Mission statement */}
-            <div className="min-h-[360px] overflow-hidden rounded-[4px] border border-[#e7e7e7] shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:col-span-2 md:min-h-[400px] lg:min-h-[320px]">
+            <div className="min-h-[360px] overflow-hidden rounded-[4px] border border-[#e7e7e7] shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:col-span-2 md:min-h-[400px] lg:min-h-0 lg:aspect-[3.4/1]">
               <MissionBox className="h-full w-full" />
             </div>
 
             {/* Bottom-leftMain Photos carousel (moved from top-right) */}
             <div
-              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
+              className="aspect-[3/2] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
               aria-label="Featured Photos"
             >
               <PhotoCarousel
@@ -154,7 +154,7 @@ export default function Home() {
 
             {/* Bottom-right: Student Testimonies */}
             <div
-              className="aspect-[4/3] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)] md:aspect-auto md:h-[400px] lg:min-h-[420px] xl:min-h-[440px] 2xl:min-h-[480px]"
+              className="aspect-[3/2] overflow-hidden rounded-[4px] border border-[#e7e7e7] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
               aria-label="Student Testimonies"
             >
               <PhotoCarousel
