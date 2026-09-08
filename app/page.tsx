@@ -36,7 +36,7 @@ function getMemberAnchor(name: string) {
 
 // ── LOCAL COMPONENTS ──────────────────────────────────────────────────────────
 
-/** Small card displayed in the Board of Directors sidebar. */
+/** Small card displayed in the Our Team sidebar. */
 function BoardMemberCard({ name, role, imageSrc }: TeamMember) {
   return (
     <article className="flex w-28 shrink-0 flex-col items-center text-center lg:w-auto lg:shrink">
@@ -111,14 +111,14 @@ export default function Home() {
         {/* ── Outer layout: sidebar + main grid ── */}
         <div className="grid grid-cols-1 gap-3 lg:grid-cols-[240px_minmax(0,1fr)]">
 
-          {/* ── LEFT SIDEBAR: Board of Directors ── */}
+          {/* ── LEFT SIDEBAR: Our Team ── */}
           <aside
-            aria-label="Board of Directors"
+            aria-label="Our Team"
             className="order-last w-full lg:order-none"
           >
           <div className="rounded-[4px] border border-[#e7e7e7] bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.05)] lg:max-h-[760px] lg:overflow-y-auto lg:p-3 xl:max-h-[800px] 2xl:max-h-[860px]">
               <h2 className="mb-5 text-center text-base font-bold uppercase tracking-[0.08em] text-slate-700 sm:tracking-widest lg:mb-4">
-                Board of Directors
+                Our Team
               </h2>
               <div className="flex gap-3 overflow-x-auto pb-2 lg:block lg:space-y-3 lg:overflow-visible lg:pb-0">
                 {boardMembers.map((member) => (
