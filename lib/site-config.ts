@@ -44,21 +44,13 @@ export const siteConfig = {
         { href: "/programs", label: "The Michigan Civics Corps" },
         { href: "/programs", label: "Speaker Series" },
         { href: "/programs", label: "Workshops/Trainings" },
-      ],
-    },
-    {
-      label: "Help Us Grow",
-      items: [
-        { href: "/help-us-grow", label: "Sponsor an Existing Program" },
-        { href: "/help-us-grow", label: "Fund an Event in Your Community" },
-        { href: "/help-us-grow", label: "Become a Member" },
-        { href: "/help-us-grow", label: "Join the Michigan Civics Corps" },
         { href: "/help-us-grow", label: "Mentorship Opportunities" },
       ],
     },
     {
       label: "Members Only",
       items: [
+        { href: "/help-us-grow", label: "Become a Member" },
         { href: "/membership", label: "Research and Reports" },
         { href: "/membership", label: "Newsletters" },
         { href: "/membership", label: "Upcoming Events" },
