@@ -49,7 +49,6 @@ export const siteConfig = {
     {
       label: "Help Us Grow",
       items: [
-        { href: "/help-us-grow", label: "Donate" },
         { href: "/help-us-grow", label: "Sponsor an Existing Program" },
         { href: "/help-us-grow", label: "Fund an Event in Your Community" },
         { href: "/help-us-grow", label: "Become a Member" },
