@@ -32,8 +32,8 @@ export const siteConfig = {
     {
       label: "Events",
       items: [
-        { href: "/events", label: "Past Events" },
         { href: "/events", label: "Upcoming Events" },
+        { href: "/events", label: "Past Events" },
       ],
     },
     {
