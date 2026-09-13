@@ -9,6 +9,10 @@ import {
   type StorySectionContent,
 } from "@/lib/cms/about-content";
 
+function getMemberAnchor(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
 function PersonCard({
   name,
   role,
@@ -30,7 +34,14 @@ function PersonCard({
         />
       </div>
       <div className="text-center">
-        <h3 className="text-base font-semibold text-black">{name}</h3>
+        <h3 className="text-base font-semibold text-black">
+          <Link
+            href={`/board-of-directors#${getMemberAnchor(name)}`}
+            className="transition-colors hover:text-orange-700 hover:underline"
+          >
+            {name}
+          </Link>
+        </h3>
         <p className="mt-1 text-sm font-medium text-black">{role}</p>
       </div>
     </article>

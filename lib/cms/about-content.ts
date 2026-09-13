@@ -65,20 +65,20 @@ export const boardMembers: TeamMember[] = [
   {
     name: "David Deutsch",
     role: "Board Member",
-    bio: "",
+    bio: "David Deutsch is a shareholder in Maddin, Hauser, Roth & Heller’s Corporate, Business and Estate Planning practices in Southfield, Michigan.  David is a proud graduate of Michigan State University and New York University Law School. David and his family live in southeastern Michigan. He is the proud grandfather of Scottie, loves golf and the Tigers, and supports the work of the Institute. ",
     imageSrc: "/images/boardAndStaff/DavidDeutsch.jpg",
   },
   {
     name: "Sierra Pilarski",
     role: "Assistant to the President",
-    bio: "",
+    bio: "Sierra Pilarski is a junior at the University of Michigan-Flint studying Communications with a minor in Sociology. She serves as Communications Director for the Institute for Strengthening Communities and as Communications Manager for the Genesee County Medical History Project, where she focuses on communication, community engagement, and connecting organizations with the communities they serve. Sierra is also interning at a local high school alongside its student liaison, gaining experience in community outreach, student support, and addressing barriers to school attendance. Her work reflects a strong commitment to strengthening communities and expanding opportunities for young people and families. In addition to her professional and community-based work, Sierra has been named to the University of Michigan-Flint Dean’s List every semester that she has attended the university, reflecting her continued academic dedication. She is particularly interested in using communication, community collaboration, and nonprofit work to create meaningful and lasting community impact. ",
     imageSrc: "/images/boardAndStaff/Pilarski.png",
   },
 
   {
     name: "Lucas Perron",
     role: "Website Developer/Administrator",
-    bio: "",
+    bio: "Lucas Perron is an honors student at Eastern Michigan University pursuing a degree in Computer Science, with an expected graduation in 2027. He serves as a Computer Science Department Desk Assistant at EMU, where he supports faculty and students within the department. Lucas is the Web Administrator and Developer for the Institute, applying his interests in web and software development to manage and develop the organization’s online presence. A former student of the Institute, he is excited to now contribute his technical skills to support its mission and continued growth.",
     imageSrc: "/images/about/Luke_Perron_Headshot.jpg",
   },
 
