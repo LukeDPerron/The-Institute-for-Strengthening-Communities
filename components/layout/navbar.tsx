@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site-config";
+import { createClient } from "@/lib/supabase/client";
 
 // Pages that have a full-width hero/banner image behind the navbar.
 // On these pages the navbar overlays the banner and stays transparent.
@@ -17,6 +18,7 @@ const BANNER_PAGES = ["/about", "/news", "/help-us-grow"];
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [clickedNavItem, setClickedNavItem] = useState<string | null>(null);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
   const pathname = usePathname();
 
   const handleTopLevelNavClick = (
@@ -33,6 +35,24 @@ export function Navbar() {
 
   const hasBanner = BANNER_PAGES.includes(pathname);
   const isWhite = !hasBanner;
+
+  useEffect(() => {
+    const supabase = createClient();
+    void supabase.auth.getUser().then(({ data }) => {
+      setUserEmail(data.user?.email ?? null);
+    });
+    const { data } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user.email ?? null);
+    });
+
+    return () => data.subscription.unsubscribe();
+  }, []);
+
+  const handleSignOut = async () => {
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    setIsOpen(false);
+  };
 
   // Update underline when pathname changes (e.g., via clicking links on the page)
   useEffect(() => {
@@ -130,6 +150,46 @@ export function Navbar() {
           >
             Donate
           </Link>
+          {userEmail ? (
+            <div className="flex items-center gap-3">
+              <Link
+                href="/membership"
+                className="rounded-md px-3 py-2 text-[16px] font-semibold text-slate-700 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+              >
+                My account
+              </Link>
+              <button
+                type="button"
+                onClick={handleSignOut}
+                className="rounded-md border border-orange-500 px-4 py-2 text-[16px] font-semibold text-orange-700 hover:bg-orange-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+              >
+                Log out
+              </button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-3">
+              <Link
+                href="/login"
+                className={`rounded-md px-3 py-2 text-[16px] font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
+                  isWhite
+                    ? "text-slate-700 hover:text-orange-700"
+                    : "text-white drop-shadow hover:text-orange-200"
+                }`}
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className={`rounded-md px-3 py-2 text-[16px] font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
+                  isWhite
+                    ? "text-slate-700 hover:text-orange-700"
+                    : "text-white drop-shadow hover:text-orange-200"
+                }`}
+              >
+                Sign up
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Mobile: hamburger toggle */}
@@ -156,6 +216,34 @@ export function Navbar() {
           className="border-t border-slate-200 bg-white md:hidden"
         >
           <ul className="space-y-1 px-4 py-3">
+            <li className={userEmail ? "" : "flex items-center gap-3"}>
+              {userEmail ? (
+                <button
+                  type="button"
+                  onClick={handleSignOut}
+                  className="w-full rounded-md border border-orange-500 px-4 py-2.5 text-center text-[18px] font-semibold text-orange-700 hover:bg-orange-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+                >
+                  Log out
+                </button>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="rounded-md px-3 py-2.5 text-[18px] font-semibold text-slate-700 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Log in
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="rounded-md px-3 py-2.5 text-[18px] font-semibold text-slate-700 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Sign up
+                  </Link>
+                </>
+              )}
+            </li>
             <li>
               <Link
                 href={siteConfig.donateHref}
