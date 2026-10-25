@@ -10,27 +10,30 @@ import { createClient } from "@/lib/supabase/client";
 // Pages that have a full-width hero/banner image behind the navbar.
 // On these pages the navbar overlays the banner and stays transparent.
 // On all other pages the navbar is always white.
-const BANNER_PAGES = ["/about", "/news", "/help-us-grow"];
+const BANNER_PAGES = ["/about"];
 
 // Responsive header with mobile menu toggle.
 // Sits at the top of the page; overlays banner pages and stays transparent there.
 // The top-level nav button for the current page's group is underlined.
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [clickedNavItem, setClickedNavItem] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState<string | null>(null);
   const pathname = usePathname();
 
-  const handleTopLevelNavClick = (
-    label: string,
-    event: React.MouseEvent<HTMLAnchorElement>
-  ) => {
-    setClickedNavItem(label);
-
+  const handleTopLevelNavClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     // Prevent focus-within styles from keeping the dropdown visible after click navigation.
     if (event.detail > 0) {
       event.currentTarget.blur();
     }
+  };
+
+  const isNavGroupActive = (label: string) => {
+    if (pathname === "/") return false;
+
+    const navItem = siteConfig.navItems.find((item) => item.label === label);
+    if (!navItem) return false;
+
+    return navItem.items.some((dropdownItem) => dropdownItem.href.split("#")[0] === pathname);
   };
 
   const hasBanner = BANNER_PAGES.includes(pathname);
@@ -53,22 +56,6 @@ export function Navbar() {
     await supabase.auth.signOut();
     setIsOpen(false);
   };
-
-  // Update underline when pathname changes (e.g., via clicking links on the page)
-  useEffect(() => {
-    if (pathname === "/") {
-      // No nav group is active on the homepage
-      setClickedNavItem(null);
-    } else {
-      const activeItem = siteConfig.navItems.find((item) =>
-        item.items.some((dropdownItem) => dropdownItem.href.split("#")[0] === pathname)
-      );
-      if (activeItem) {
-        setClickedNavItem(activeItem.label);
-      }
-    }
-  }, [pathname]);
-
   return (
     <header
       className={`${hasBanner ? "absolute left-0 top-0" : ""} z-50 w-full transition-colors duration-300 ${
@@ -85,15 +72,15 @@ export function Navbar() {
         <Link
           href="/"
           aria-label={siteConfig.name}
-          className="inline-flex shrink-0 items-center lg:-ml-28"
+          className="inline-flex shrink-0 items-center 2xl:-ml-16"
         >
           <Image
-            src="/Transparent_Logo.png"
+            src="/transparent_Logo.png"
             alt={`${siteConfig.name} logo`}
             width={619}
             height={70}
             priority
-            className="h-auto w-36 sm:w-44 lg:w-72"
+            className="h-auto w-36 sm:w-44 lg:w-56 xl:w-64 2xl:w-72"
           />
         </Link>
 
@@ -101,7 +88,7 @@ export function Navbar() {
         <div className="hidden items-center gap-6 md:flex">
           <ul className="flex items-center gap-5" role="list">
             {siteConfig.navItems.map((item) => {
-              const active = clickedNavItem === item.label;
+              const active = isNavGroupActive(item.label);
               const groupHref = item.items[0]?.href.split("#")[0] ?? "/";
               return (
               <li key={item.label} className="group relative pt-1">
@@ -110,7 +97,7 @@ export function Navbar() {
                   aria-haspopup="true"
                   aria-label={`${item.label} menu`}
                   aria-current={active ? "page" : undefined}
-                  onClick={(event) => handleTopLevelNavClick(item.label, event)}
+                  onClick={handleTopLevelNavClick}
                   className={`cursor-pointer text-[18px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500 ${
                     active ? "underline underline-offset-4" : ""
                   } ${
@@ -131,7 +118,6 @@ export function Navbar() {
                       <Link
                         href={dropdownItem.href}
                         role="menuitem"
-                        onClick={() => setClickedNavItem(item.label)}
                         className="block rounded-md px-3 py-1.5 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-500"
                       >
                         {dropdownItem.label}
@@ -254,7 +240,7 @@ export function Navbar() {
               </Link>
             </li>
             {siteConfig.navItems.map((item) => {
-              const active = clickedNavItem === item.label;
+              const active = isNavGroupActive(item.label);
               return (
               <li key={item.label}>
                 <details>
@@ -270,7 +256,6 @@ export function Navbar() {
                           href={dropdownItem.href}
                           className="block rounded-md px-2 py-2 text-[18px] text-slate-700 hover:bg-orange-50 hover:text-orange-700"
                           onClick={() => {
-                            setClickedNavItem(item.label);
                             setIsOpen(false);
                           }}
                         >

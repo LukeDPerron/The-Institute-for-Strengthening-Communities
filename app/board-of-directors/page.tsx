@@ -10,7 +10,7 @@ export default function BoardOfDirectorsPage() {
     <main className="bg-white">
       <div className="mx-auto max-w-7xl px-4 pb-14 pt-8 sm:px-6 sm:pb-16 sm:pt-10 lg:px-8">
         <header className="border-b border-slate-200 pb-12">
-          <h1 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">Board of Directors</h1>
+          <h1 className="text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">Our Team</h1>
         </header>
 
         <section className="divide-y divide-slate-200" aria-label="Board members">
